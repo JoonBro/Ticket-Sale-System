@@ -2,7 +2,8 @@
 #include <string>
 #include <fstream>
 #include "SignUpUI.h"
-#include "LogInUI.h"
+#include "LogIn.h"
+#include "LogOut.h"
 
 void doTask(void);
 void join(void);
@@ -13,7 +14,7 @@ std::ofstream output_txt;
 
 int main(void)
 {
-	// ÆÄÀÏ ÀÔÃâ·ÂÀ» À§ÇÑ ÃÊ±âÈ­
+	// íŒŒì¼ ìž…ì¶œë ¥ì„ ìœ„í•œ ì´ˆê¸°í™”
 	input_txt.open("input.txt");
 	output_txt.open("output.txt");
 
@@ -24,23 +25,23 @@ int main(void)
 
 void doTask(void)
 {
-	// ¸Þ´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºÐÀ» À§ÇÑ º¯¼ö
+	// ë©”ë‰´ íŒŒì‹±ì„ ìœ„í•œ level êµ¬ë¶„ì„ ìœ„í•œ ë³€ìˆ˜
 	int menu_level_1 = 0, menu_level_2 = 0;
 	bool is_program_exit = false;
 
 	while (!is_program_exit)
 	{
-		// ÀÔ·ÂÆÄÀÏ¿¡¼­ ¸Þ´º ¼ýÀÚ 2°³¸¦ ÀÐ±â
+		// ìž…ë ¥íŒŒì¼ì—ì„œ ë©”ë‰´ ìˆ«ìž 2ê°œë¥¼ ì½ê¸°
 		input_txt >> menu_level_1 >> menu_level_2;
 
-		// ¸Þ´º ±¸ºÐ ¹× ÇØ´ç ¿¬»ê ¼öÇà
+		// ë©”ë‰´ êµ¬ë¶„ ë° í•´ë‹¹ ì—°ì‚° ìˆ˜í–‰
 		switch (menu_level_1)
 		{
 		case 1:
 			switch (menu_level_2)
 			{
-			case 1: //È¸¿ø °¡ÀÔ ¸Þ´º ºÎºÐ
-				// join() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
+			case 1: //íšŒì› ê°€ìž… ë©”ë‰´ ë¶€ë¶„
+				// join() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
 				join();
 				break;
 			case 2:
@@ -53,6 +54,7 @@ void doTask(void)
 				login();
 				break;
 			case 2:
+				logout();
 				break;
 			}
 		case 3:
@@ -94,7 +96,7 @@ void doTask(void)
 		case 7:
 			switch (menu_level_2)
 			{
-			case 1: // 7.1 Á¾·á ¸Þ´º ºÎºÐ
+			case 1: // 7.1 ì¢…ë£Œ ë©”ë‰´ ë¶€ë¶„
 
 				program_exit();
 				is_program_exit = true;
@@ -106,40 +108,62 @@ void doTask(void)
 }
 
 /*
-ÀÛ¼ºÀÚ: ¹Î°æÅÂ
-ÀÛ¼º ½Ã°£: 2019.05.30 01:30
+ìž‘ì„±ìž: ë¯¼ê²½íƒœ
+ìž‘ì„± ì‹œê°„: 2019.05.30 01:30
 */
 void join(void)
 {
 	std::string id, passwd, name, ssn, user_type;
-	// ÀÔ·Â Çü½Ä: ID, ºñ¹Ð¹øÈ£, ÀÌ¸§, ÁÖ¹Î¹øÈ£, »ç¿ëÀÚÀ¯ÇüÀ» ÆÄÀÏ·ÎºÎÅÍ ÀÐÀ½
+	// ìž…ë ¥ í˜•ì‹: ID, ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ì‚¬ìš©ìžìœ í˜•ì„ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
 	input_txt >> id >> passwd >> name >> ssn >> user_type;
 
-	// ÇØ´ç ±â´É¼öÇà
+	// í•´ë‹¹ ê¸°ëŠ¥ìˆ˜í–‰
 	SignUpUI signUpUI;
 	signUpUI.signUp(id, passwd, name, ssn, user_type);
 
-	// Ãâ·Â Çü½Ä
-	output_txt << "1.1 È¸¿ø°¡ÀÔ\n";
+	// ì¶œë ¥ í˜•ì‹
+	output_txt << "1.1 íšŒì›ê°€ìž…\n";
 	output_txt << ">" << id << " " << passwd << " " << name << " " << ssn << " " << user_type << "\n";
 	return;
 }
 
 /*
-ÀÛ¼ºÀÚ: ¹ÚÁØÇü
-ÀÛ¼º ½Ã°£: 2019.05.31 01:30
+ìž‘ì„±ìž: ë°•ì¤€í˜•
+ìž‘ì„± ì‹œê°„: 2019.05.31 01:30
 */
 void login(void)
 {
-	std::string id, passwd
-		// ÀÔ·Â Çü½Ä: ID, ºñ¹Ð¹øÈ£, ÀÌ¸§, ÁÖ¹Î¹øÈ£, »ç¿ëÀÚÀ¯ÇüÀ» ÆÄÀÏ·ÎºÎÅÍ ÀÐÀ½
+	std::string id, passwd;
+		// ìž…ë ¥ í˜•ì‹: ID, ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ì‚¬ìš©ìžìœ í˜•ì„ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
 		input_txt >> id >> passwd;
 
-	// ÇØ´ç ±â´É¼öÇà
+	// í•´ë‹¹ ê¸°ëŠ¥ìˆ˜í–‰
 	LogInUI logInUI;
-	if (logInUI.logIn(id, passwd)) {
-		output_txt << "2.1 ·Î±×ÀÎ\n";
+	if (logInUI.logInRequest(id, passwd)) {
+		output_txt << "2.1 ë¡œê·¸ì¸\n";
 		output_txt << ">" << id << " " << passwd << "\n";
+	}
+
+
+
+	return;
+}
+
+/*
+ìž‘ì„±ìž: ë°•ì¤€í˜•
+ìž‘ì„± ì‹œê°„: 2019.05.31 16:00
+*/
+void logout(void)
+{
+	std::string id;
+		// ìž…ë ¥ í˜•ì‹: ID, ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ì‚¬ìš©ìžìœ í˜•ì„ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
+		
+
+	// í•´ë‹¹ ê¸°ëŠ¥ìˆ˜í–‰
+	LogOutUI logOutUI;
+	if (logOutUI.logOutRequest()) {
+		output_txt << "2.2 ë¡œê·¸ì•„ì›ƒ\n";
+		output_txt << ">" << logOutUI.printLogOutID() << "\n";
 	}
 
 
@@ -150,6 +174,6 @@ void login(void)
 
 void program_exit(void)
 {
-	output_txt << "7.1 Á¾·á\n";
+	output_txt << "7.1 ì¢…ë£Œ\n";
 	return;
 }
