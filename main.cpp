@@ -2,15 +2,19 @@
 #include <string>
 #include <fstream>
 #include "SignUpUI.h"
+#include "SignOutUI.h"
 #include "LogIn.h"
 #include "LogOut.h"
+#include "MemberCollection.h"
 
 void doTask(void);
 void join(void);
+void leave(void);
 void program_exit(void);
 
 std::ifstream input_txt;
 std::ofstream output_txt;
+Member *curUser;
 
 int main(void)
 {
@@ -45,6 +49,7 @@ void doTask(void)
 				join();
 				break;
 			case 2:
+				leave();
 				break;
 			}
 		case 2:
@@ -123,7 +128,27 @@ void join(void)
 
 	// 출력 형식
 	output_txt << "1.1 회원가입\n";
-	output_txt << ">" << id << " " << passwd << " " << name << " " << ssn << " " << user_type << "\n";
+	output_txt << "> " << id << " " << passwd << " " << name << " " << ssn << " " << user_type << "\n";
+	return;
+}
+
+/*
+작성자: 민경태
+작성 시간: 2019.06.01 03:14
+*/
+void leave(void)
+{
+	// 해당 기능 수행
+	SignOutUI signOutUI;
+	bool flag = signOutUI.signOut(curUser);
+
+	output_txt << "1.2 회원탈퇴\n";
+	// 출력 형식
+	output_txt << "> " << curUser -> getId();
+	if(flag)
+		output_txt << "\n";
+	else
+		output_txt << "가 티켓을 판매중이므로 거부\n";
 	return;
 }
 

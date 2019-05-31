@@ -22,6 +22,10 @@ private:
 					 //TicketCollection BidCollection;
 public:
 	Member(std::string memberId, std::string memberPassword, std::string memberName, std::string memberSsn, std::string memberType);
+	std::string getId(void);
+	std::string getPassword(void);
+	int getMemberUserType(void);
+	int getCurrentState(void);
 };//티켓시스템의 멤버.구매자와 판매자로 나뉜다. 
 
 #endif

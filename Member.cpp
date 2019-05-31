@@ -11,3 +11,23 @@ Member::Member(std::string memberId, std::string memberPassword, std::string mem
 	else
 		this->memberUsertype = 2;
 }
+
+std::string Member::getId(void)
+{
+	return this->memberId;
+}
+
+std::string Member::getPassword(void)
+{
+	return this->memberPassword;
+}
+
+int Member::getMemberUserType(void)
+{
+	return this->memberUsertype;
+}
+
+int Member::getCurrentState(void)
+{
+	return this->currentState;
+}

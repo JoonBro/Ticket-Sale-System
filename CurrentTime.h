@@ -4,7 +4,7 @@
 #include <string>
 
 class CurrentTime {
-	std::string currentTime;//ÇöÀç½Ã°¢
+	std::string currentTime;//ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
 };
 
 #endif

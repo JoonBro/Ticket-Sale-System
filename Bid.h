@@ -6,8 +6,8 @@
 
 class Bid {
 private:
-	std::string bidMemberId;//ÀÔÂû¿¡ Âü¿©ÇÑ ¸É¹öÀÇ ID
-	int bidPrice;//ÀÔÂû°¡°İ
+	std::string bidMemberId;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¹ï¿½ï¿½ï¿½ ID
+	int bidPrice;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 public:
 };

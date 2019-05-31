@@ -7,16 +7,16 @@
 class Ticket 
 {
 private:
-	int ticketType;//ÆÇ¸ÅÆ¼ÄÏ È¤Àº ±¸¸ÅÆ¼ÄÏ
-	std::string ticketHomeTeam;//È¨ÆÀ
-	std::string ticketAwayTeam;//¾î¿þÀÌÆÀ
-	std::string ticketTime;//¾ß±¸°æ±â³¯Â¥¹×½Ã°£ //ÇÔ¼ö¿¡¼­ ½Ã°£ parsing ÇÊ¿ä
-	std::string ticketSeat;//ÁÂ¼®À§Ä¡
-	bool ticketAuction;//auctionÆ¼ÄÏ¿©ºÎ
-	bool ticketSold;//ÆÇ¸ÅµÇ¾ú´ÂÁö ¿©ºÎ
-	int ticketPrice;//Æ¼ÄÏ°¡°Ý
-	int ticketBidPrice;//³«Âû°¡°Ý(auction ½Ã)
-	//BidCollection ticketBidList;//Æ¼ÄÏ¿¡ ÇØ´çÇÏ´Â bidList
+	int ticketType;//ï¿½Ç¸ï¿½Æ¼ï¿½ï¿½ È¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½
+	std::string ticketHomeTeam;//È¨ï¿½ï¿½
+	std::string ticketAwayTeam;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	std::string ticketTime;//ï¿½ß±ï¿½ï¿½ï¿½â³¯Â¥ï¿½×½Ã°ï¿½ //ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ parsing ï¿½Ê¿ï¿½
+	std::string ticketSeat;//ï¿½Â¼ï¿½ï¿½ï¿½Ä¡
+	bool ticketAuction;//auctionÆ¼ï¿½Ï¿ï¿½ï¿½ï¿½
+	bool ticketSold;//ï¿½Ç¸ÅµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int ticketPrice;//Æ¼ï¿½Ï°ï¿½ï¿½ï¿½
+	int ticketBidPrice;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(auction ï¿½ï¿½)
+	//BidCollection ticketBidList;//Æ¼ï¿½Ï¿ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ bidList
 
 public:
 };
