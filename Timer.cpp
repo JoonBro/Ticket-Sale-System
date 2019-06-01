@@ -23,6 +23,7 @@ void Timer::setTime(std::string time)
 {
     this->time = time;
     // 모든 멤버 티켓 업데이트
-    
-    
+    TicketCollection *ticketCollection = TicketCollection::getInstance();
+    ticketCollection->adjustAuctionTicket(time);
+    ticketCollection->deleteExpiredTicket(time);
 }
