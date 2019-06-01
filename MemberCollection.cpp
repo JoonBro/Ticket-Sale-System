@@ -16,6 +16,11 @@ MemberCollection *MemberCollection::getInstance(){
 	return memberCollection;
 }
 
+std::vector<Member *> MemberCollection::getMemberList(void)
+{
+	return this->memberList;
+}
+
 void MemberCollection::createMember(std::string id, std::string passwd, std::string name, std::string ssn, std::string user_type)
 {
 	Member *temp = new Member(id, passwd, name, ssn, user_type);

@@ -10,10 +10,23 @@
 #include "ViewRegisteredSaleTicketUI.h"
 #include "SearchTicketUI.h"
 #include "SearchAuctionTicketUI.h"
+#include "Timer.h"
 
 void doTask(void);
 void join(void);
 void leave(void);
+void login(void);
+void logout(void);
+void registerSaleTicket(void);
+void viewRegisteredSaleTicket(void);
+void search(void);
+void reserve(void);
+void viewAuctionTicket(void);
+void enterAuction(void);
+
+void setTime(void);
+void changeCurMember(void);
+void transitionToGuestSession(void);
 void program_exit(void);
 
 std::ifstream input_txt;
@@ -106,15 +119,21 @@ void doTask(void)
 		case 5:
 			switch (menu_level_2)
 			{
-			case 1:
+			case 1: // 현재시간 설정 부분
+				// setTime() 함수에서 해당 기능 수행
+				setTime();
 				break;
 			}
 		case 6:
 			switch (menu_level_2)
 			{
-			case 1:
+			case 1: // session 변경 부분
+				// changeCurMember() 함수에서 해당 기능 수행
+				changeCurMember();
 				break;
-			case 2:
+			case 2: // guest session으로 변경
+				// transitionToGuestSession() 함수에서 해당 기능 수행
+				transitionToGuestSession();
 				break;
 			}
 		case 7:
@@ -293,6 +312,51 @@ void enterAuction(void)
 {
 	SearchAuctionTicketUI searchAuctionTicketUI;
 	searchAuctionTicketUI.bidForAuction();
+}
+
+void setTime(void)
+{
+	Timer *timer = Timer::getInstance();
+	std::string currentTime;
+	// 입력 형식: 현재 시간
+	input_txt >> currentTime;
+
+	// 해당 기능 수행
+	timer->setTime(currentTime);
+	// 출력 형식
+	output_txt << "5.1 현재시간 설정\n";
+	output_txt << "> " << currentTime << "\n";
+	output_txt << "\n";
+}
+
+void changeCurMember(void)
+{
+	std::string id;
+	// 입력 형식: id
+	input_txt >> id;
+
+	// 해당 기능 수행
+	MemberCollection *memberCollection = MemberCollection::getInstance();
+	std::vector<Member *> memberList = memberCollection->getMemberList();
+	for(int i=0; i<memberList.size(); i++)
+		if(memberList[i]->getId() == id && memberList[i]->getCurrentState == 1)
+		{
+			curUser = memberList[i];
+			break;
+		}
+	
+	// 출력 형식
+	output_txt << "6.1 session 변경\n";
+	output_txt << "> " << id << "\n";
+	output_txt << "\n";
+}
+
+void transitionToGuestSession(void)
+{
+	curUser = nullptr;
+	// 출력 형식
+	output_txt << "6.2 guest session으로 변경\n";
+	output_txt << "\n";
 }
 
 void program_exit(void)
