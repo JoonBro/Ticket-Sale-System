@@ -23,6 +23,7 @@ void search(void);
 void reserve(void);
 void viewAuctionTicket(void);
 void enterAuction(void);
+void showReservedTicket(void);
 
 void setTime(void);
 void changeCurMember(void);
@@ -113,7 +114,9 @@ void doTask(void)
 				// enterAuction() 함수에서 해당 기능 수행
 				enterAuction();
 				break;
-			case 5:
+			case 5: //예약 티켓 출력
+				showReservedTicket();
+
 				break;
 			}
 		case 5:
@@ -363,4 +366,22 @@ void program_exit(void)
 {
 	output_txt << "7.1 종료\n";
 	return;
+}
+
+/*
+작성자: 조유림
+시각: 2019-06-02-01:00*/
+void showReservedTicket(void)
+{
+	std::vector<Ticket *> reservedTicketList;//예약된 티켓리스트
+	showReservedTicketUI showReservedTicketUI;//UI생성
+	reservedTicketList = showReservedTicketUI.showReservedTicket();
+
+	vector<int>::iterator iter;
+	for(iter=reservedTicketList.begin();iter != reservedTicketList.end();iter++)
+	{
+		//구매가격 날짜-시간 홈팀 어웨이팀 좌석위치 출력		
+		output_txt << iter->ticketPrice << " "<< iter->ticketDate << " " << iter->ticketHomeTeam << " " << iter->ticketAwayTeam << " " << iter->ticketSeat << "\n";
+	}
+
 }
