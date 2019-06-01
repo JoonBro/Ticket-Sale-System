@@ -377,6 +377,7 @@ void showReservedTicket(void)
 	showReservedTicketUI showReservedTicketUI;//UI생성
 	reservedTicketList = showReservedTicketUI.showReservedTicket();
 
+	output_txt << "4.5 예약정보 조회\n";
 	vector<int>::iterator iter;
 	for(iter=reservedTicketList.begin();iter != reservedTicketList.end();iter++)
 	{
