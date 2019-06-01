@@ -11,6 +11,7 @@ private:
 public:
     SearchTicketUI();
     std::string getHomeTeam(void);
+    void setHomeTeam(std::string team);
     void selectTeam(void);
     void reserveTicket(void);
 };

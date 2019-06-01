@@ -9,6 +9,7 @@
 #include "RegisteringSaleTicketUI.h"
 #include "ViewRegisteredSaleTicketUI.h"
 #include "SearchTicketUI.h"
+#include "SearchAuctionTicketUI.h"
 
 void doTask(void);
 void join(void);
@@ -91,9 +92,13 @@ void doTask(void)
 				// reserve() 함수에서 해당 기능 수행
 				reserve();
 				break;
-			case 3:
+			case 3: // 경매 중인 티켓 검색 부분
+				// viewAuctionTicket() 함수에서 해당 기능 수행
+				viewAuctionTicket();
 				break;
-			case 4:
+			case 4: // 경매 참여 부분
+				// enterAuction() 함수에서 해당 기능 수행
+				enterAuction();
 				break;
 			case 5:
 				break;
@@ -268,6 +273,26 @@ void reserve(void)
 	// search의 extension
 	SearchTicketUI searchTicketUI;
 	searchTicketUI.reserveTicket();
+}
+
+/*
+작성자: 민경태
+작성 시간: 2019.06.01 23:36
+*/
+void viewAuctionTicket(void)
+{
+	SearchAuctionTicketUI searchAuctionTicketUI;
+	searchAuctionTicketUI.selectTeam();
+}
+
+/*
+작성자: 민경태
+작성 시간: 2019.06.01 23:36
+*/
+void enterAuction(void)
+{
+	SearchAuctionTicketUI searchAuctionTicketUI;
+	searchAuctionTicketUI.bidForAuction();
 }
 
 void program_exit(void)

@@ -13,12 +13,18 @@ std::string SearchTicketUI::getHomeTeam(void)
     return this->homeTeam;
 }
 
+void SearchTicketUI::setHomeTeam(std::string team)
+{
+    this->homeTeam = team;
+}
+
 void SearchTicketUI::selectTeam(void)
 {
     std::string team;
     // 입력 형식: 홈팀
     input_txt >> team;
-
+    setHomeTeam(team);
+    
     // 해당 기능 수행
     SearchTicket searchTicket;
     std::vector<Ticket *> availableTicketList;
