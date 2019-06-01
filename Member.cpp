@@ -47,3 +47,8 @@ TicketCollection Member::getReservedCollection(void)
 {
 	return this->reservedCollection;
 }
+
+TicketCollection Member::getBidCollection(void)
+{
+	return this->bidCollection;
+}

@@ -6,6 +6,7 @@
 #include "LogIn.h"
 #include "LogOut.h"
 #include "MemberCollection.h"
+#include "RegisteringSaleTicketUI.h"
 
 void doTask(void);
 void join(void);
@@ -72,7 +73,7 @@ void doTask(void)
 				// registerSaleTicket() 함수에서 해당 기능 수행
 				registerSaleTicket();
 				break;
-			case 2:
+			case 2: // 등록 티켓 조회
 				break;
 			}
 		case 4:
@@ -202,13 +203,17 @@ void logout(void)
 */
 void registerSaleTicket(void)
 {
-	int price;
-	std::string date, homeTeam, awayTeam, seat;
-	bool option;
+	std::string price, date, homeTeam, awayTeam, seat, option;
 	// 입력 형식: 희망가격, 날짜-시간, 홈팀, 어웨이팀, 좌석위치, 경매선택여부 파일로부터 읽음
 	input_txt >> price >> date >> homeTeam >> awayTeam >> seat >> option;
 
-	
+	// 해당 기능 수행
+	RegisteringSaleTicketUI registeringSaleTicketUI;
+	registeringSaleTicketUI.sendTicketInfo(price, date, homeTeam, awayTeam, seat, option);
+
+	// 출력 형식
+	output_txt << "3.1 판매티켓 등록\n";
+	output_txt << "> " << price << " " << date << " " << homeTeam << " " << awayTeam << " " << seat << " " << option << "\n";
 }
 
 void program_exit(void)

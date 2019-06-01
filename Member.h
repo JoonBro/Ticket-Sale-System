@@ -17,7 +17,7 @@ private:
 	int currentState; //0:Logout, 1:Login, 2:Login&
 	TicketCollection saleCollection;//판매티켓
 	TicketCollection reservedCollection;//구매티켓
-	//TicketCollection BidCollection;
+	TicketCollection bidCollection; //옥션
 public:
 	Member(std::string memberId, std::string memberPassword, std::string memberName, std::string memberSsn, std::string memberType);
 	std::string getId(void);
@@ -27,6 +27,7 @@ public:
 	void setCurrentState(int state);
 	TicketCollection getSaleCollection(void);
 	TicketCollection getReservedCollection(void);
+	TicketCollection getBidCollection(void);
 };//티켓시스템의 멤버.구매자와 판매자로 나뉜다. 
 
 #endif

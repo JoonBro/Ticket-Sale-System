@@ -9,7 +9,7 @@ class MemberCollection
 {
 private:
 	static MemberCollection *memberCollection;
-	std::vector<Member*> memberList;
+	std::vector<Member *> memberList;
 	MemberCollection();
 public:
 	void createMember(std::string id, std::string passwd, std::string name, std::string ssn, std::string user_type);
