@@ -1,20 +1,21 @@
-#ifndef ShowReservedTicket
-#define ShowReservedTicket 
-#include <string>
+#ifndef SHOWRESERVEDICKET
+#define SHOWRESERVEDICKET
 
-class ShowReservedTicket{
-private: 
-	memberCollection = MemberCollection();
+#include "TicketCollection.h"
+#include <vector>
 
-public: 
-	ShowReservedTicket();//생성자
-};
+extern Member *curMember;
 
-class ShowReservedTicketUI{
+class ShowReservedTicket
+{
 public:
-	ShowReservedTicketUI();//생성자
-	void showReservedTicket();
+    ShowReservedTicket();
+    std::vector<Ticket *> getReservedTicket(void);
 };
 
 #endif
 
+/*
+ 작성자: 조유림 
+ 변경시간: 2019-06-02-00:33
+ */
