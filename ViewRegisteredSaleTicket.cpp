@@ -1,12 +1,14 @@
 #include "ViewRegisteredSaleTicket.h"
 
-ViewRegisteredSaleTicket::ViewRegisteredSaleTicket(){}
+extern Member *curUser;
+
+ViewRegisteredSaleTicket::ViewRegisteredSaleTicket() {}
 
 std::vector<Ticket *> ViewRegisteredSaleTicket::getRegisteredTicket(void)
 {
-    TicketCollection *ticketCollection = TicketCollection::getInstance();
-    std::vector<Ticket *> ticketList;
-    ticketList = ticketCollection->getSaleTicketList(curMember->getId());
-    
-    return ticketList;
+	TicketCollection *ticketCollection = TicketCollection::getInstance();
+	std::vector<Ticket *> ticketList;
+	ticketList = ticketCollection->getSaleTicketList(curUser->getId());
+
+	return ticketList;
 }

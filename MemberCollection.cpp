@@ -1,18 +1,14 @@
 #include "MemberCollection.h"
 #include "Timer.h"
 
-#define LOGOUT 0
-#define LOGIN 1
-#define CURLOGIN 2
-
 MemberCollection *MemberCollection::memberCollection = NULL; // singleton
 
-MemberCollection::MemberCollection(){}
+MemberCollection::MemberCollection() {}
 
-MemberCollection *MemberCollection::getInstance(){
-	if(memberCollection == NULL)
+MemberCollection *MemberCollection::getInstance() {
+	if (memberCollection == NULL)
 		memberCollection = new MemberCollection();
-	
+
 	return memberCollection;
 }
 
@@ -29,9 +25,9 @@ void MemberCollection::createMember(std::string id, std::string passwd, std::str
 
 void MemberCollection::deleteMember(Member *m)
 {
-	for(auto it = this->memberList.begin(); it < this->memberList.end(); it++)
+	for (auto it = this->memberList.begin(); it < this->memberList.end(); it++)
 	{
-		if((*it)->getId() == m->getId())
+		if ((*it)->getId() == m->getId())
 		{
 			this->memberList.erase(it);
 			break;
@@ -40,10 +36,10 @@ void MemberCollection::deleteMember(Member *m)
 }
 
 bool MemberCollection::checkLoginMember(std::string id, std::string passwd) {
-	for (auto it = this ->memberList.begin(); it < this->memberList.end(); it++)
+	for (auto it = this->memberList.begin(); it < this->memberList.end(); it++)
 	{
 		if ((*it)->getId() == id && (*it)->getPassword() == passwd) {
-			(*it)->setCurrentState(CURLOGIN);
+			(*it)->setCurrentState(2);
 			return true;
 		}
 	}
@@ -51,10 +47,10 @@ bool MemberCollection::checkLoginMember(std::string id, std::string passwd) {
 }
 
 bool MemberCollection::checkLogoutMember(std::string id) {
-	for (auto it = this -> memberList.begin(); it < this->memberList.end(); it++)
+	for (auto it = this->memberList.begin(); it < this->memberList.end(); it++)
 	{
-		if ((*it)->getId() == id && (*it)->getCurrentState == CURLOGIN) {
-			(*it)->setCurrentState(LOGOUT);
+		if ((*it)->getId() == id && (*it)->getCurrentState() == 2) {
+			(*it)->setCurrentState(0);
 			return true;
 		}
 	}
@@ -62,11 +58,12 @@ bool MemberCollection::checkLogoutMember(std::string id) {
 }
 
 std::string MemberCollection::getlogoutMemberID() {
-	for (auto it = this -> memberList.begin(); it < this->memberList.end(); it++)
+	for (auto it = this->memberList.begin(); it < this->memberList.end(); it++)
 	{
-		if ((*it)->getCurrentState == CURLOGIN) {
-			(*it)->setCurrentState(CURLOGIN);
+		if ((*it)->getCurrentState() == 2) {
+			(*it)->setCurrentState(0);
 			return (*it)->getId();
 		}
 	}
+	return "";
 }

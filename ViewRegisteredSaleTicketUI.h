@@ -1,5 +1,4 @@
-#ifndef VIEWREGISTEREDSALETICKETUI
-#define VIEWREGISTEREDSALETICKETUI
+#pragma once
 
 #include "TicketCollection.h"
 #include <vector>
@@ -7,8 +6,6 @@
 class ViewRegisteredSaleTicketUI
 {
 public:
-    ViewRegisteredSaleTicketUI();
-    std::vector<Ticket *> viewSaleTicket(void);
+	ViewRegisteredSaleTicketUI();
+	std::vector<Ticket *> viewSaleTicket(void);
 };
-
-#endif

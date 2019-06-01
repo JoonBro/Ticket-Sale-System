@@ -1,5 +1,4 @@
-#ifndef LOGIN
-#define LOGIN
+#pragma once
 
 #include "MemberCollection.h"
 #include <string>
@@ -17,5 +16,3 @@ public:
 	LogIn();
 	bool loginMember(std::string id, std::string passwd);
 };
-
-#endif

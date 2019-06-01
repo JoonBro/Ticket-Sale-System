@@ -1,13 +1,10 @@
-#ifndef SIGNOUT
-#define SIGNOUT
+#pragma once
 
 #include "MemberCollection.h"
 
 class SignOut
 {
 public:
-    SignOut();
-    bool deleteMember(Member *m);
+	SignOut();
+	bool deleteMember(Member *m);
 };
-
-#endif

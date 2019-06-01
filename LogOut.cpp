@@ -1,7 +1,7 @@
 #include "LogOut.h"
 #include <string>
 
-LogOut::LogOut(std::string id = NULL)
+LogOut::LogOut(std::string id)
 {
 	this->id = id;
 }
@@ -25,10 +25,10 @@ std::string LogOut::getLogOutID(void) {
 	else {
 		return NULL;
 	}
-	
+
 }
 
-LogOutUI::LogOutUI(std::string id = NULL) 
+LogOutUI::LogOutUI(std::string id)
 {
 	this->id = id;
 }

@@ -1,13 +1,10 @@
-#ifndef REGISTERINGSALETICKET
-#define REGISTERINGSALETICKET
+#pragma once
 
 #include <string>
 
 class RegisteringSaleTicket
 {
 public:
-    RegisteringSaleTicket();
-    void registerSaleTicket(std::string price, std::string date, std::string homeTeam, std::string awayTeam, std::string seat, std::string option);
+	RegisteringSaleTicket();
+	void registerSaleTicket(std::string price, std::string date, std::string homeTeam, std::string awayTeam, std::string seat, std::string option);
 };
-
-#endif

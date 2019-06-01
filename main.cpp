@@ -5,6 +5,7 @@
 #include "SignOutUI.h"
 #include "LogIn.h"
 #include "LogOut.h"
+#include "Member.h"
 #include "MemberCollection.h"
 #include "RegisteringSaleTicketUI.h"
 #include "ViewRegisteredSaleTicketUI.h"
@@ -62,23 +63,23 @@ void doTask(void)
 			switch (menu_level_2)
 			{
 			case 1: // 회원 가입 메뉴 부분
-				// join() 함수에서 해당 기능 수행
+					// join() 함수에서 해당 기능 수행
 				join();
 				break;
 			case 2: // 회원 탈퇴 메뉴 부분
-				// leave() 함수에서 해당 기능 수행
-				leave(); 
+					// leave() 함수에서 해당 기능 수행
+				leave();
 				break;
 			}
 		case 2:
 			switch (menu_level_2)
 			{
 			case 1: // 로그인 메뉴 부분
-				// login() 함수에서 해당 기능 수행
+					// login() 함수에서 해당 기능 수행
 				login();
 				break;
 			case 2: // 로그아웃 메뉴 부분
-				// logout() 함수에서 해당 기능 수행
+					// logout() 함수에서 해당 기능 수행
 				logout();
 				break;
 			}
@@ -86,11 +87,11 @@ void doTask(void)
 			switch (menu_level_2)
 			{
 			case 1: // 판매티켓 등록 부분
-				// registerSaleTicket() 함수에서 해당 기능 수행
+					// registerSaleTicket() 함수에서 해당 기능 수행
 				registerSaleTicket();
 				break;
 			case 2: // 등록 티켓 조회
-				// viewRegistedSaleTicket() 함수에서 해당 기능 수행
+					// viewRegistedSaleTicket() 함수에서 해당 기능 수행
 				viewRegisteredSaleTicket();
 				break;
 			}
@@ -98,19 +99,19 @@ void doTask(void)
 			switch (menu_level_2)
 			{
 			case 1: // 티켓 검색 부분
-				// search() 함수에서 해당 기능 수행
+					// search() 함수에서 해당 기능 수행
 				search();
 				break;
 			case 2: // 티켓 예약 부분
-				// reserve() 함수에서 해당 기능 수행
+					// reserve() 함수에서 해당 기능 수행
 				reserve();
 				break;
 			case 3: // 경매 중인 티켓 검색 부분
-				// viewAuctionTicket() 함수에서 해당 기능 수행
+					// viewAuctionTicket() 함수에서 해당 기능 수행
 				viewAuctionTicket();
 				break;
 			case 4: // 경매 참여 부분
-				// enterAuction() 함수에서 해당 기능 수행
+					// enterAuction() 함수에서 해당 기능 수행
 				enterAuction();
 				break;
 			case 5:
@@ -120,7 +121,7 @@ void doTask(void)
 			switch (menu_level_2)
 			{
 			case 1: // 현재시간 설정 부분
-				// setTime() 함수에서 해당 기능 수행
+					// setTime() 함수에서 해당 기능 수행
 				setTime();
 				break;
 			}
@@ -128,11 +129,11 @@ void doTask(void)
 			switch (menu_level_2)
 			{
 			case 1: // session 변경 부분
-				// changeCurMember() 함수에서 해당 기능 수행
+					// changeCurMember() 함수에서 해당 기능 수행
 				changeCurMember();
 				break;
 			case 2: // guest session으로 변경
-				// transitionToGuestSession() 함수에서 해당 기능 수행
+					// transitionToGuestSession() 함수에서 해당 기능 수행
 				transitionToGuestSession();
 				break;
 			}
@@ -181,8 +182,8 @@ void leave(void)
 
 	output_txt << "1.2 회원탈퇴\n";
 	// 출력 형식
-	output_txt << "> " << curUser -> getId();
-	if(flag)
+	output_txt << "> " << curUser->getId();
+	if (flag)
 		output_txt << "\n";
 	else
 		output_txt << "가 티켓을 판매중이므로 거부\n";
@@ -202,11 +203,11 @@ void login(void)
 	// 해당 기능수행
 	LogInUI logInUI;
 	output_txt << "2.1 로그인\n";
-	if (logInUI.logInRequest(id, passwd)) 
+	if (logInUI.logInRequest(id, passwd))
 		output_txt << "> " << id << " " << passwd << "\n";
 	else
 		output_txt << "> 아이디와 비밀번호 일치하지 않아 거부\n";
-	
+
 	output_txt << "\n";
 }
 
@@ -259,12 +260,12 @@ void viewRegisteredSaleTicket(void)
 	std::vector<Ticket *> saleTicketList = viewRegisteredSaleTicketUI.viewSaleTicket();
 
 	output_txt << "3.2 등록티켓 조회\n";
-	for(int i=0; i<saleTicketList.size(); i++)
+	for (int i = 0; i<saleTicketList.size(); i++)
 	{
-		output_txt <<"> " << saleTicketList[i]->getTicketPrice() << " " << saleTicketList[i]->getTicketDate();
+		output_txt << "> " << saleTicketList[i]->getTicketPrice() << " " << saleTicketList[i]->getTicketDate();
 		output_txt << " " << saleTicketList[i]->getTicketHomeTeam() << " " << saleTicketList[i]->getTicketAwayTeam();
-		output_txt << " " << saleTicketList[i]->getTicketSeat() << " " << saleTicketList[i]->getTicketAuction() <<  " ";
-		if(saleTicketList[i]->getReservedDate == "")
+		output_txt << " " << saleTicketList[i]->getTicketSeat() << " " << saleTicketList[i]->getTicketAuction() << " ";
+		if (saleTicketList[i]->getReservedDate() == "")
 			output_txt << "0\n";
 		else
 			output_txt << "1\n";
@@ -338,13 +339,13 @@ void changeCurMember(void)
 	// 해당 기능 수행
 	MemberCollection *memberCollection = MemberCollection::getInstance();
 	std::vector<Member *> memberList = memberCollection->getMemberList();
-	for(int i=0; i<memberList.size(); i++)
-		if(memberList[i]->getId() == id && memberList[i]->getCurrentState == 1)
+	for (int i = 0; i<memberList.size(); i++)
+		if (memberList[i]->getId() == id && memberList[i]->getCurrentState() == 1)
 		{
 			curUser = memberList[i];
 			break;
 		}
-	
+
 	// 출력 형식
 	output_txt << "6.1 session 변경\n";
 	output_txt << "> " << id << "\n";

@@ -1,16 +1,11 @@
-#ifndef VIEWREGISTEREDSALETICKET
-#define VIEWREGISTEREDSALETICKET
+#pragma once
 
 #include "TicketCollection.h"
 #include <vector>
 
-extern Member *curMember;
-
 class ViewRegisteredSaleTicket
 {
 public:
-    ViewRegisteredSaleTicket();
-    std::vector<Ticket *> getRegisteredTicket(void);
+	ViewRegisteredSaleTicket();
+	std::vector<Ticket *> getRegisteredTicket(void);
 };
-
-#endif

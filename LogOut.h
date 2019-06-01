@@ -1,6 +1,4 @@
-
-#ifndef LOGOUT
-#define LOGOUT
+#pragma once
 
 #include "MemberCollection.h"
 #include <string>
@@ -24,5 +22,3 @@ public:
 	bool logoutMember(void);
 	std::string getLogOutID();
 };
-
-#endif

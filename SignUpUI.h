@@ -1,5 +1,4 @@
-#ifndef SIGNUPUI
-#define SIGNUPUI
+#pragma once
 
 #include "SignUp.h"
 #include <string>
@@ -10,5 +9,3 @@ public:
 	SignUpUI();
 	void signUp(std::string id, std::string passwd, std::string name, std::string ssn, std::string user_type);
 };
-
-#endif

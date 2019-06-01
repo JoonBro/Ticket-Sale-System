@@ -1,11 +1,10 @@
-#ifndef TICKET
-#define TICKET
+#pragma once
 
 #include <iostream>
 #include <string>
-#include "MemberCollection.h"
+#include "Member.h"
 
-class Ticket 
+class Ticket
 {
 private:
 	int ticketPrice; // 가격
@@ -53,5 +52,3 @@ public:
 	std::string remainingAuctionTime(void);
 	bool sameTicket(std::string date, std::string homeTeam, std::string awayTeam, std::string seat);
 };
-
-#endif

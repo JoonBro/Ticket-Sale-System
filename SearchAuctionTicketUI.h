@@ -1,18 +1,15 @@
-#ifndef SEARCHAUCTIONTICKETUI
-#define SEARCHAUCITONTICKEtUI
+#pragma once
 
 #include <string>
 
 class SearchAuctionTicketUI
 {
 private:
-    static std::string homeTeam;
+	static std::string homeTeam;
 public:
-    SearchAuctionTicketUI();
-    std::string getHomeTeam(void);
-    void setHomeTeam(std::string team);
-    void selectTeam(void);
-    void bidForAuction(void);
+	SearchAuctionTicketUI();
+	std::string getHomeTeam(void);
+	void setHomeTeam(std::string team);
+	void selectTeam(void);
+	void bidForAuction(void);
 };
-
-#endif

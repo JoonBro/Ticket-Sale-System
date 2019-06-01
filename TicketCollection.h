@@ -1,11 +1,11 @@
-#ifndef TICKETCOLLECTION
-#define TICKETCOLLECTION
+#pragma once
 
-#include "Ticket.h"
 #include <vector>
 #include <string>
+#include "Ticket.h"
+#include "Member.h"
 
-class TicketCollection 
+class TicketCollection
 {
 private:
 	static TicketCollection *ticketCollection;
@@ -24,5 +24,3 @@ public:
 	std::vector<Ticket *> sortTicketList(std::vector<Ticket *> ticketList);
 	Ticket *reserveTicket(std::string id, std::string ticketDate, std::string homeTeam, std::string awayTeam, std::string seat);
 };
-
-#endif

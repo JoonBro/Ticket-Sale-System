@@ -1,12 +1,10 @@
-#ifndef MEMBER
-#define MEMBER
+#pragma once
 
 #include <iostream>
 #include <string>
 #include <vector>
-#include "TicketCollection.h"
 
-class Member 
+class Member
 {
 private:
 	std::string memberId; // 아이디
@@ -30,5 +28,3 @@ public:
 	int getCurrentState(void);
 	void setCurrentState(int state);
 };//티켓시스템의 멤버.구매자와 판매자로 나뉜다. 
-
-#endif

@@ -1,6 +1,6 @@
 #include "LogIn.h"
 
-LogIn::LogIn(){}
+LogIn::LogIn() {}
 
 bool LogIn::loginMember(std::string id, std::string passwd)
 {
@@ -13,10 +13,11 @@ bool LogIn::loginMember(std::string id, std::string passwd)
 	}
 }
 
-LogInUI::LogInUI(){}
+LogInUI::LogInUI() {}
 
 bool LogInUI::logInRequest(std::string id, std::string passwd)
 {
 	LogIn logInControl;
-	logInControl.loginMember(id, passwd);
+	bool flag = logInControl.loginMember(id, passwd);
+	return flag;
 }
