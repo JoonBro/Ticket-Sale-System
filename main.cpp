@@ -8,6 +8,7 @@
 #include "MemberCollection.h"
 #include "RegisteringSaleTicketUI.h"
 #include "ViewRegisteredSaleTicketUI.h"
+#include "SearchTicketUI.h"
 
 void doTask(void);
 void join(void);
@@ -82,9 +83,13 @@ void doTask(void)
 		case 4:
 			switch (menu_level_2)
 			{
-			case 1:
+			case 1: // 티켓 검색 부분
+				// search() 함수에서 해당 기능 수행
+				search();
 				break;
-			case 2:
+			case 2: // 티켓 예약 부분
+				// reserve() 함수에서 해당 기능 수행
+				reserve();
 				break;
 			case 3:
 				break;
@@ -111,7 +116,6 @@ void doTask(void)
 			switch (menu_level_2)
 			{
 			case 1: // 7.1 종료 메뉴 부분
-
 				program_exit();
 				is_program_exit = true;
 				break;
@@ -138,7 +142,7 @@ void join(void)
 	// 출력 형식
 	output_txt << "1.1 회원가입\n";
 	output_txt << "> " << id << " " << passwd << " " << name << " " << ssn << " " << user_type << "\n";
-	return;
+	output_txt << "\n";
 }
 
 /*
@@ -158,7 +162,7 @@ void leave(void)
 		output_txt << "\n";
 	else
 		output_txt << "가 티켓을 판매중이므로 거부\n";
-	return;
+	output_txt << "\n";
 }
 
 /*
@@ -179,7 +183,7 @@ void login(void)
 	else
 		output_txt << "> 아이디와 비밀번호 일치하지 않아 거부\n";
 	
-	return;
+	output_txt << "\n";
 }
 
 /*
@@ -197,7 +201,7 @@ void logout(void)
 	if (logOutUI.logOutRequest())
 		output_txt << "> " << logOutUI.printLogOutID() << "\n";
 
-	return;
+	output_txt << "\n";
 }
 
 /*
@@ -217,6 +221,7 @@ void registerSaleTicket(void)
 	// 출력 형식
 	output_txt << "3.1 판매티켓 등록\n";
 	output_txt << "> " << price << " " << date << " " << homeTeam << " " << awayTeam << " " << seat << " " << option << "\n";
+	output_txt << "\n";
 }
 
 /*
@@ -241,6 +246,28 @@ void viewRegisteredSaleTicket(void)
 			output_txt << "1\n";
 	}
 	output_txt << "\n";
+}
+
+/*
+작성자: 민경태
+작성 시간: 2019.06.01 22:10
+*/
+void search(void)
+{
+	// 해당 기능 수행
+	SearchTicketUI searchTicketUI;
+	searchTicketUI.selectTeam();
+}
+
+/*
+작성자: 민경태
+작성 시간: 2019.06.01 22:40
+*/
+void reserve(void)
+{
+	// search의 extension
+	SearchTicketUI searchTicketUI;
+	searchTicketUI.reserveTicket();
 }
 
 void program_exit(void)

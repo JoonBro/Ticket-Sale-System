@@ -65,8 +65,3 @@ std::string MemberCollection::getlogoutMemberID() {
 		}
 	}
 }
-
-void MemberCollection::updateAllMembersTicket(void)
-{
-	
-}
