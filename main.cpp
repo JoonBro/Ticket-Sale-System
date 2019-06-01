@@ -7,6 +7,7 @@
 #include "LogOut.h"
 #include "MemberCollection.h"
 #include "RegisteringSaleTicketUI.h"
+#include "ViewRegisteredSaleTicketUI.h"
 
 void doTask(void);
 void join(void);
@@ -74,6 +75,8 @@ void doTask(void)
 				registerSaleTicket();
 				break;
 			case 2: // 등록 티켓 조회
+				// viewRegistedSaleTicket() 함수에서 해당 기능 수행
+				viewRegisteredSaleTicket();
 				break;
 			}
 		case 4:
@@ -214,6 +217,30 @@ void registerSaleTicket(void)
 	// 출력 형식
 	output_txt << "3.1 판매티켓 등록\n";
 	output_txt << "> " << price << " " << date << " " << homeTeam << " " << awayTeam << " " << seat << " " << option << "\n";
+}
+
+/*
+작성자: 민경태
+작성 시간: 2019.06.01 21:40
+*/
+void viewRegisteredSaleTicket(void)
+{
+	// 해당 기능 수행
+	ViewRegisteredSaleTicketUI viewRegisteredSaleTicketUI;
+	std::vector<Ticket *> saleTicketList = viewRegisteredSaleTicketUI.viewSaleTicket();
+
+	output_txt << "3.2 등록티켓 조회\n";
+	for(int i=0; i<saleTicketList.size(); i++)
+	{
+		output_txt <<"> " << saleTicketList[i]->getTicketPrice() << " " << saleTicketList[i]->getTicketDate();
+		output_txt << " " << saleTicketList[i]->getTicketHomeTeam() << " " << saleTicketList[i]->getTicketAwayTeam();
+		output_txt << " " << saleTicketList[i]->getTicketSeat() << " " << saleTicketList[i]->getTicketAuction() <<  " ";
+		if(saleTicketList[i]->getReservedDate == "")
+			output_txt << "0\n";
+		else
+			output_txt << "1\n";
+	}
+	output_txt << "\n";
 }
 
 void program_exit(void)

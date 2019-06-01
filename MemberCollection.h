@@ -15,8 +15,9 @@ public:
 	void createMember(std::string id, std::string passwd, std::string name, std::string ssn, std::string user_type);
 	void deleteMember(Member *m);
 	static MemberCollection *getInstance();
-	bool chechloginMember(std::string id, std::string passwd);
-	bool chechlogoutMember(std::string id);
+	bool checkLoginMember(std::string id, std::string passwd);
+	bool checkLogoutMember(std::string id);
+	void updateAllMembersTicket(void);
 	std::string getlogoutMemberID();
 };
 
