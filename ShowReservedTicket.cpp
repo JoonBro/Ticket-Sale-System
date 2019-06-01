@@ -6,7 +6,7 @@ std::vector<Ticket *> ShowReservedTicket::getReservedTicket(void)
 {
     TicketCollection *ticketCollection = TicketCollection::getInstance();
     std::vector<Ticket *> ticketList;
-    ticketList = ticketCollection->getReservedTicketList(curMember->getId());
+    ticketList = ticketCollection->getReservedTicketList(curUser->getId());
     
     return ticketList;
 }

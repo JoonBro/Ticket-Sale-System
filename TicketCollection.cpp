@@ -17,8 +17,8 @@ TicketCollection *TicketCollection::getInstance(void)
 void TicketCollection::addTicket(Member *m, int ticketPrice, std::string ticketDate, std::string ticketHomeTeam, std::string ticketAwayTeam, std::string ticketSeat, bool ticketAuction)
 {
 	Timer *timer = Timer::getInstance();
+	//std::cout << m->getId() << " " << timer->getTime() << " " << ticketPrice << " " << ticketDate << " " << ticketHomeTeam << " " << ticketAwayTeam << " " << ticketSeat << " " << ticketAuction << "\n";
 	Ticket *ticket = new Ticket(m, timer->getTime(), ticketPrice, ticketDate, ticketHomeTeam, ticketAwayTeam, ticketSeat, ticketAuction);
-
 	ticketList.push_back(ticket);
 }
 
@@ -75,6 +75,7 @@ void TicketCollection::adjustAuctionTicket(std::string currentTime)
 				ticketList[i]->setTicketPrice(bidders[idx].first);
 				ticketList[i]->setBuyerId(bidders[idx].second);
 				ticketList[i]->setSoldDate(currentTime);
+				ticketList[i]->setReservedDate(currentTime);
 			}
 		}
 
@@ -121,7 +122,6 @@ std::vector<Ticket *> TicketCollection::getSaleTicketList(std::string id)
 		if (ticketList[i]->getSellerId() == id)
 			result.push_back(ticketList[i]);
 	}
-
 	result = sortTicketList(result);
 	return result;
 }
@@ -200,11 +200,17 @@ std::vector<Ticket *> TicketCollection::sortTicketList(std::vector<Ticket *> tic
 
 Ticket *TicketCollection::reserveTicket(std::string id, std::string ticketDate, std::string homeTeam, std::string awayTeam, std::string seat)
 {
-	for (int i = 0; i<ticketList.size(); i++)
+	Timer *timer = Timer::getInstance();
+	for (int i = 0; i < ticketList.size(); i++)
+	{
 		if (ticketList[i]->sameTicket(ticketDate, homeTeam, awayTeam, seat))
 		{
 			ticketList[i]->setBuyerId(id);
+			ticketList[i]->setSoldDate(timer->getTime());
+			ticketList[i]->setReservedDate(timer->getTime());
 			return ticketList[i];
 		}
+	}
+
 	return nullptr;
 }

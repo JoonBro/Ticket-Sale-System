@@ -1,15 +1,15 @@
 #include "LogOut.h"
 #include <string>
 
-LogOut::LogOut(std::string id)
-{
-	this->id = id;
-}
+extern Member *curUser;
+std::string userId;
+
+LogOut::LogOut() {}
 
 bool LogOut::logoutMember(void)
 {
 	MemberCollection *memberCollection = MemberCollection::getInstance();
-	if (memberCollection->checkLogoutMember(id)) {
+	if (memberCollection->checkLogoutMember(curUser->getId())) {
 		return true;
 	}
 	else {
@@ -28,19 +28,15 @@ std::string LogOut::getLogOutID(void) {
 
 }
 
-LogOutUI::LogOutUI(std::string id)
-{
-	this->id = id;
-}
+LogOutUI::LogOutUI() {}
 
 bool LogOutUI::logOutRequest(void)
 {
-	LogOut logOutControl(id);
-	id = logOutControl.getLogOutID();
-	if (id == "") {
-		return false;
-	}
+	LogOut logOutControl;
 	if (logOutControl.logoutMember()) {
+		curUser->setCurrentState(0);
+		userId = curUser->getId();
+		curUser = nullptr;
 		return true;
 	}
 	else {
@@ -49,6 +45,5 @@ bool LogOutUI::logOutRequest(void)
 }
 
 std::string LogOutUI::printLogOutID() {
-	LogOut logOutControl(id);
-	return logOutControl.getLogOutID();
+	return userId;
 }

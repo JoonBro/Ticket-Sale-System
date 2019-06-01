@@ -1,6 +1,8 @@
 #include "MemberCollection.h"
 #include "Timer.h"
 
+extern Member *curUser;
+
 MemberCollection *MemberCollection::memberCollection = NULL; // singleton
 
 MemberCollection::MemberCollection() {}
@@ -39,6 +41,7 @@ bool MemberCollection::checkLoginMember(std::string id, std::string passwd) {
 	for (auto it = this->memberList.begin(); it < this->memberList.end(); it++)
 	{
 		if ((*it)->getId() == id && (*it)->getPassword() == passwd) {
+			curUser = (*it);
 			(*it)->setCurrentState(2);
 			return true;
 		}

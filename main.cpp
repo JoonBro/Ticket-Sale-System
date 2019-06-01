@@ -12,6 +12,7 @@
 #include "SearchTicketUI.h"
 #include "SearchAuctionTicketUI.h"
 #include "Timer.h"
+#include "ShowReservedTicketUI.h"
 
 void doTask(void);
 void join(void);
@@ -25,7 +26,6 @@ void reserve(void);
 void viewAuctionTicket(void);
 void enterAuction(void);
 void showReservedTicket(void);
-
 void setTime(void);
 void changeCurMember(void);
 void transitionToGuestSession(void);
@@ -56,7 +56,7 @@ void doTask(void)
 	{
 		// 입력파일에서 메뉴 숫자 2개를 읽기
 		input_txt >> menu_level_1 >> menu_level_2;
-
+		//std::cout << menu_level_1 << "\n" << menu_level_2 << "\n";
 		// 메뉴 구분 및 해당 연산 수행
 		switch (menu_level_1)
 		{
@@ -65,89 +65,110 @@ void doTask(void)
 			{
 			case 1: // 회원 가입 메뉴 부분
 					// join() 함수에서 해당 기능 수행
+				//std::cout << "join\n";
 				join();
 				break;
 			case 2: // 회원 탈퇴 메뉴 부분
 					// leave() 함수에서 해당 기능 수행
+				//std::cout << "leave\n";
 				leave();
 				break;
 			}
+			break;
 		case 2:
 			switch (menu_level_2)
 			{
 			case 1: // 로그인 메뉴 부분
 					// login() 함수에서 해당 기능 수행
+				//std::cout << "login\n";
 				login();
 				break;
 			case 2: // 로그아웃 메뉴 부분
 					// logout() 함수에서 해당 기능 수행
+				//std::cout << "logout\n";
 				logout();
 				break;
 			}
+			break;
 		case 3:
 			switch (menu_level_2)
 			{
 			case 1: // 판매티켓 등록 부분
 					// registerSaleTicket() 함수에서 해당 기능 수행
+				//std::cout << "registerSaleTicket\n";
 				registerSaleTicket();
 				break;
 			case 2: // 등록 티켓 조회
 					// viewRegistedSaleTicket() 함수에서 해당 기능 수행
+				//std::cout << "viewRegisteredTicket\n";
 				viewRegisteredSaleTicket();
 				break;
 			}
+			break;
 		case 4:
 			switch (menu_level_2)
 			{
 			case 1: // 티켓 검색 부분
 					// search() 함수에서 해당 기능 수행
+				//std::cout << "search\n";
 				search();
 				break;
 			case 2: // 티켓 예약 부분
 					// reserve() 함수에서 해당 기능 수행
+				//std::cout << "reserve\n";
 				reserve();
 				break;
 			case 3: // 경매 중인 티켓 검색 부분
 					// viewAuctionTicket() 함수에서 해당 기능 수행
+				//std::cout << "viewAuctionTicket\n";
 				viewAuctionTicket();
 				break;
 			case 4: // 경매 참여 부분
 					// enterAuction() 함수에서 해당 기능 수행
+				//std::cout << "enterAuction\n";
 				enterAuction();
 				break;
 			case 5: //예약 티켓 출력
+				//std::cout << "showReservedTicket\n";
 				showReservedTicket();
-
 				break;
 			}
+			break;
 		case 5:
 			switch (menu_level_2)
 			{
 			case 1: // 현재시간 설정 부분
 					// setTime() 함수에서 해당 기능 수행
+				//std::cout << "setTime\n";
 				setTime();
 				break;
 			}
+			break;
 		case 6:
 			switch (menu_level_2)
 			{
 			case 1: // session 변경 부분
 					// changeCurMember() 함수에서 해당 기능 수행
+				//std::cout << "changeCurMember\n";
 				changeCurMember();
 				break;
 			case 2: // guest session으로 변경
 					// transitionToGuestSession() 함수에서 해당 기능 수행
+				//std::cout << "transitionToGuestSession\n";
 				transitionToGuestSession();
 				break;
 			}
+			break;
 		case 7:
 			switch (menu_level_2)
 			{
 			case 1: // 7.1 종료 메뉴 부분
+				//std::cout << "program_exit\n";
 				program_exit();
 				is_program_exit = true;
 				break;
 			}
+			break;
 		}
 	}
 	return;
@@ -162,7 +183,6 @@ void join(void)
 	std::string id, passwd, name, ssn, user_type;
 	// 입력 형식: ID, 비밀번호, 이름, 주민번호, 사용자유형을 파일로부터 읽음
 	input_txt >> id >> passwd >> name >> ssn >> user_type;
-
 	// 해당 기능수행
 	SignUpUI signUpUI;
 	signUpUI.signUp(id, passwd, name, ssn, user_type);
@@ -220,15 +240,11 @@ void login(void)
 */
 void logout(void)
 {
-	std::string id;
-	input_txt >> id;
-
 	// 해당 기능수행
-	LogOutUI logOutUI(id);
+	LogOutUI logOutUI;
 	output_txt << "2.2 로그아웃\n";
 	if (logOutUI.logOutRequest())
 		output_txt << "> " << logOutUI.printLogOutID() << "\n";
-
 	output_txt << "\n";
 }
 
@@ -241,7 +257,7 @@ void registerSaleTicket(void)
 	std::string price, date, homeTeam, awayTeam, seat, option;
 	// 입력 형식: 희망가격, 날짜-시간, 홈팀, 어웨이팀, 좌석위치, 경매선택여부 파일로부터 읽음
 	input_txt >> price >> date >> homeTeam >> awayTeam >> seat >> option;
-
+	//std::cout << price << " " << date << " " << homeTeam << " " << awayTeam << " " << seat << " " << option << "\n";
 	// 해당 기능 수행
 	RegisteringSaleTicketUI registeringSaleTicketUI;
 	registeringSaleTicketUI.sendTicketInfo(price, date, homeTeam, awayTeam, seat, option);
@@ -268,7 +284,7 @@ void viewRegisteredSaleTicket(void)
 		output_txt << "> " << saleTicketList[i]->getTicketPrice() << " " << saleTicketList[i]->getTicketDate();
 		output_txt << " " << saleTicketList[i]->getTicketHomeTeam() << " " << saleTicketList[i]->getTicketAwayTeam();
 		output_txt << " " << saleTicketList[i]->getTicketSeat() << " " << saleTicketList[i]->getTicketAuction() << " ";
-		if (saleTicketList[i]->getReservedDate() == "")
+		if (saleTicketList[i]->getSoldDate() == "")
 			output_txt << "0\n";
 		else
 			output_txt << "1\n";
@@ -324,7 +340,7 @@ void setTime(void)
 	std::string currentTime;
 	// 입력 형식: 현재 시간
 	input_txt >> currentTime;
-
+	//std::cout << currentTime << "\n";
 	// 해당 기능 수행
 	timer->setTime(currentTime);
 	// 출력 형식
@@ -342,12 +358,15 @@ void changeCurMember(void)
 	// 해당 기능 수행
 	MemberCollection *memberCollection = MemberCollection::getInstance();
 	std::vector<Member *> memberList = memberCollection->getMemberList();
-	for (int i = 0; i<memberList.size(); i++)
-		if (memberList[i]->getId() == id && memberList[i]->getCurrentState() == 1)
+	for (int i = 0; i < memberList.size(); i++)
+	{
+		if (memberList[i]->getId() == id)
 		{
+			curUser->setCurrentState(1);
 			curUser = memberList[i];
 			break;
 		}
+	}
 
 	// 출력 형식
 	output_txt << "6.1 session 변경\n";
@@ -375,15 +394,15 @@ void program_exit(void)
 void showReservedTicket(void)
 {
 	std::vector<Ticket *> reservedTicketList;//예약된 티켓리스트
-	showReservedTicketUI showReservedTicketUI;//UI생성
+	ShowReservedTicketUI showReservedTicketUI;//UI생성
 	reservedTicketList = showReservedTicketUI.showReservedTicket();
 
 	output_txt << "4.5 예약정보 조회\n";
-	vector<int>::iterator iter;
-	for(iter=reservedTicketList.begin();iter != reservedTicketList.end();iter++)
+	std::vector<Ticket *>::iterator iter;
+	for (iter = reservedTicketList.begin();iter != reservedTicketList.end();iter++)
 	{
 		//구매가격 날짜-시간 홈팀 어웨이팀 좌석위치 출력		
-		output_txt << iter->ticketPrice << " "<< iter->ticketDate << " " << iter->ticketHomeTeam << " " << iter->ticketAwayTeam << " " << iter->ticketSeat << "\n";
+		output_txt << (*iter)->getTicketPrice() << " " << (*iter)->getTicketDate() << " " << (*iter)->getTicketHomeTeam() << " " << (*iter)->getTicketAwayTeam() << " " << (*iter)->getTicketSeat() << "\n";
 	}
-
+	output_txt << "\n";
 }

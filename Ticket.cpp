@@ -185,9 +185,5 @@ std::string Ticket::remainingAuctionTime(void)
 
 bool Ticket::sameTicket(std::string date, std::string homeTeam, std::string awayTeam, std::string seat)
 {
-	if (this->getTicketDate() == date && this->getTicketHomeTeam() == homeTeam
-		&& this->getTicketAwayTeam() == awayTeam && this->getTicketSeat() == seat)
-		return true;
-
-	return false;
+	return (this->getTicketDate() == date && this->getTicketHomeTeam() == homeTeam && this->getTicketAwayTeam() == awayTeam && this->getTicketSeat() == seat);
 }

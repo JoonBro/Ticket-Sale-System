@@ -50,7 +50,7 @@ void SearchTicketUI::reserveTicket(void)
 
 	// 해당 기능 수행
 	SearchTicket searchTicket;
-	Ticket * temp = searchTicket.reserveTicket(getHomeTeam(), date, awayTeam, seat);
+	Ticket * temp = searchTicket.reserveTicket(date, getHomeTeam(), awayTeam, seat);
 
 	// 출력 형식
 	output_txt << "4.2 티켓 예약 기능\n";
