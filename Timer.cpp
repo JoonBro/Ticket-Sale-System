@@ -1,4 +1,5 @@
 #include "Timer.h"
+#include "MemberCollection.h"
 
 Timer *Timer::timer = NULL;
 
@@ -22,5 +23,6 @@ void Timer::setTime(std::string time)
 {
     this->time = time;
     // 모든 멤버 티켓 업데이트
+    
     
 }

@@ -1,4 +1,5 @@
 #include "MemberCollection.h"
+#include "Timer.h"
 
 #define LOGOUT 0
 #define LOGIN 1
@@ -33,7 +34,7 @@ void MemberCollection::deleteMember(Member *m)
 	}
 }
 
-bool MemberCollection::chechloginMember(std::string id, std::string passwd) {
+bool MemberCollection::checkLoginMember(std::string id, std::string passwd) {
 	for (auto it = this ->memberList.begin(); it < this->memberList.end(); it++)
 	{
 		if ((*it)->getId() == id && (*it)->getPassword() == passwd) {
@@ -44,7 +45,7 @@ bool MemberCollection::chechloginMember(std::string id, std::string passwd) {
 	return false;
 }
 
-bool MemberCollection::chechlogoutMember(std::string id) {
+bool MemberCollection::checkLogoutMember(std::string id) {
 	for (auto it = this -> memberList.begin(); it < this->memberList.end(); it++)
 	{
 		if ((*it)->getId() == id && (*it)->getCurrentState == CURLOGIN) {

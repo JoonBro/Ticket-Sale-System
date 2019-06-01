@@ -9,7 +9,7 @@ LogOut::LogOut(std::string id = NULL)
 bool LogOut::logoutMember(void)
 {
 	MemberCollection *memberCollection = MemberCollection::getInstance();
-	if (memberCollection->chechlogoutMember(id)) {
+	if (memberCollection->checkLogoutMember(id)) {
 		return true;
 	}
 	else {
@@ -19,7 +19,7 @@ bool LogOut::logoutMember(void)
 
 std::string LogOut::getLogOutID(void) {
 	MemberCollection *memberCollection = MemberCollection::getInstance();
-	if (memberCollection->chechlogoutMember(id)) {
+	if (memberCollection->checkLogoutMember(id)) {
 		return memberCollection->getlogoutMemberID();
 	}
 	else {
@@ -37,7 +37,7 @@ bool LogOutUI::logOutRequest(void)
 {
 	LogOut logOutControl(id);
 	id = logOutControl.getLogOutID();
-	if (!id.compare(NULL)) {
+	if (id == "") {
 		return false;
 	}
 	if (logOutControl.logoutMember()) {
