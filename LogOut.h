@@ -8,21 +8,20 @@
 class LogOutUI
 {
 private:
-	LogOut logOutControl;
+	std::string id;
 public:
-	LogOutUI();
-	bool logOutRequest(std::string id);
+	LogOutUI(std::string id = NULL);
+	bool logOutRequest(void);
 	std::string printLogOutID();
-	
 };
 
 class LogOut
 {
 private:
-	MemberCollection memberCollection;
+	std::string id;
 public:
-	LogOut();
-	bool logoutMember(std::string id);
+	LogOut(std::string id = NULL);
+	bool logoutMember(void);
 	std::string getLogOutID();
 };
 

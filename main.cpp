@@ -44,28 +44,33 @@ void doTask(void)
 		case 1:
 			switch (menu_level_2)
 			{
-			case 1: //회원 가입 메뉴 부분
+			case 1: // 회원 가입 메뉴 부분
 				// join() 함수에서 해당 기능 수행
 				join();
 				break;
-			case 2:
-				leave();
+			case 2: // 회원 탈퇴 메뉴 부분
+				// leave() 함수에서 해당 기능 수행
+				leave(); 
 				break;
 			}
 		case 2:
 			switch (menu_level_2)
 			{
-			case 1:
+			case 1: // 로그인 메뉴 부분
+				// login() 함수에서 해당 기능 수행
 				login();
 				break;
-			case 2:
+			case 2: // 로그아웃 메뉴 부분
+				// logout() 함수에서 해당 기능 수행
 				logout();
 				break;
 			}
 		case 3:
 			switch (menu_level_2)
 			{
-			case 1:
+			case 1: // 판매티켓 등록 부분
+				// registerSaleTicket() 함수에서 해당 기능 수행
+				registerSaleTicket();
 				break;
 			case 2:
 				break;
@@ -159,18 +164,17 @@ void leave(void)
 void login(void)
 {
 	std::string id, passwd;
-		// 입력 형식: ID, 비밀번호, 이름, 주민번호, 사용자유형을 파일로부터 읽음
-		input_txt >> id >> passwd;
+	// 입력 형식: ID, 비밀번호, 이름, 주민번호, 사용자유형을 파일로부터 읽음
+	input_txt >> id >> passwd;
 
 	// 해당 기능수행
 	LogInUI logInUI;
-	if (logInUI.logInRequest(id, passwd)) {
-		output_txt << "2.1 로그인\n";
-		output_txt << ">" << id << " " << passwd << "\n";
-	}
-
-
-
+	output_txt << "2.1 로그인\n";
+	if (logInUI.logInRequest(id, passwd)) 
+		output_txt << "> " << id << " " << passwd << "\n";
+	else
+		output_txt << "> 아이디와 비밀번호 일치하지 않아 거부\n";
+	
 	return;
 }
 
@@ -181,21 +185,31 @@ void login(void)
 void logout(void)
 {
 	std::string id;
-		// 입력 형식: ID, 비밀번호, 이름, 주민번호, 사용자유형을 파일로부터 읽음
-		
+	input_txt >> id;
 
 	// 해당 기능수행
-	LogOutUI logOutUI;
-	if (logOutUI.logOutRequest()) {
-		output_txt << "2.2 로그아웃\n";
-		output_txt << ">" << logOutUI.printLogOutID() << "\n";
-	}
-
-
+	LogOutUI logOutUI(id);
+	output_txt << "2.2 로그아웃\n";
+	if (logOutUI.logOutRequest())
+		output_txt << "> " << logOutUI.printLogOutID() << "\n";
 
 	return;
 }
 
+/*
+작성자: 민경태
+작성 시간: 2019.06.01 15:11
+*/
+void registerSaleTicket(void)
+{
+	int price;
+	std::string date, homeTeam, awayTeam, seat;
+	bool option;
+	// 입력 형식: 희망가격, 날짜-시간, 홈팀, 어웨이팀, 좌석위치, 경매선택여부 파일로부터 읽음
+	input_txt >> price >> date >> homeTeam >> awayTeam >> seat >> option;
+
+	
+}
 
 void program_exit(void)
 {

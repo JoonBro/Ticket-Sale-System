@@ -1,5 +1,9 @@
 #include "MemberCollection.h"
 
+#define LOGOUT 0
+#define LOGIN 1
+#define CURLOGIN 2
+
 MemberCollection *MemberCollection::memberCollection = NULL; // singleton
 
 MemberCollection::MemberCollection(){}
@@ -33,6 +37,7 @@ bool MemberCollection::chechloginMember(std::string id, std::string passwd) {
 	for (auto it = this ->memberList.begin(); it < this->memberList.end(); it++)
 	{
 		if ((*it)->getId() == id && (*it)->getPassword() == passwd) {
+			(*it)->setCurrentState(CURLOGIN);
 			return true;
 		}
 	}
@@ -42,7 +47,8 @@ bool MemberCollection::chechloginMember(std::string id, std::string passwd) {
 bool MemberCollection::chechlogoutMember(std::string id) {
 	for (auto it = this -> memberList.begin(); it < this->memberList.end(); it++)
 	{
-		if ((*it)->getId() == id && (*it)->getCurrentState == 2) {
+		if ((*it)->getId() == id && (*it)->getCurrentState == CURLOGIN) {
+			(*it)->setCurrentState(LOGOUT);
 			return true;
 		}
 	}
@@ -52,7 +58,8 @@ bool MemberCollection::chechlogoutMember(std::string id) {
 std::string MemberCollection::getlogoutMemberID() {
 	for (auto it = this -> memberList.begin(); it < this->memberList.end(); it++)
 	{
-		if ((*it)->getCurrentState == 2) {
+		if ((*it)->getCurrentState == CURLOGIN) {
+			(*it)->setCurrentState(CURLOGIN);
 			return (*it)->getId();
 		}
 	}

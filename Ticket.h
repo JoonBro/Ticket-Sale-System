@@ -17,7 +17,6 @@ private:
 	int ticketPrice;//Ƽ�ϰ���
 	int ticketBidPrice;//��������(auction ��)
 	//BidCollection ticketBidList;//Ƽ�Ͽ� �ش��ϴ� bidList
-
 public:
 };
 

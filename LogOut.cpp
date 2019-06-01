@@ -1,15 +1,15 @@
 #include "LogOut.h"
+#include <string>
 
-
-LogOut::LogOut()
+LogOut::LogOut(std::string id = NULL)
 {
-	memberCollection = MemberCollection();
+	this->id = id;
 }
 
-bool LogOut::logoutMember(std::string id)
+bool LogOut::logoutMember(void)
 {
-	
-	if (memberCollection.chechlogoutMember(id)) {
+	MemberCollection *memberCollection = MemberCollection::getInstance();
+	if (memberCollection->chechlogoutMember(id)) {
 		return true;
 	}
 	else {
@@ -17,9 +17,10 @@ bool LogOut::logoutMember(std::string id)
 	}
 }
 
-std::string LogOut::getLogOutID() {
-	if (memberCollection.chechlogoutMember(id)) {
-		return memberCollection.getlogoutMemberID();
+std::string LogOut::getLogOutID(void) {
+	MemberCollection *memberCollection = MemberCollection::getInstance();
+	if (memberCollection->chechlogoutMember(id)) {
+		return memberCollection->getlogoutMemberID();
 	}
 	else {
 		return NULL;
@@ -27,19 +28,19 @@ std::string LogOut::getLogOutID() {
 	
 }
 
-LogOutUI::LogOutUI()
+LogOutUI::LogOutUI(std::string id = NULL) 
 {
-	logOutControl = LogOut();
+	this->id = id;
 }
 
-bool LogOutUI::logOutRequest()
+bool LogOutUI::logOutRequest(void)
 {
-	std::string id;
+	LogOut logOutControl(id);
 	id = logOutControl.getLogOutID();
-	if (id == NULL) {
+	if (!id.compare(NULL)) {
 		return false;
 	}
-	if (logOutControl.logoutMember(id)) {
+	if (logOutControl.logoutMember()) {
 		return true;
 	}
 	else {
@@ -47,6 +48,7 @@ bool LogOutUI::logOutRequest()
 	}
 }
 
-std::string printLogOutID() {
+std::string LogOutUI::printLogOutID() {
+	LogOut logOutControl(id);
 	return logOutControl.getLogOutID();
 }

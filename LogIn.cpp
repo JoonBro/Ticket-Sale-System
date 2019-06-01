@@ -1,15 +1,12 @@
 #include "LogIn.h"
 
 
-LogIn::LogIn()
-{
-	memberCollection = MemberCollection();
-}
+LogIn::LogIn(){}
 
-bool SignUp::loginMember(std::string id, std::string passwd, std::string name, std::string ssn, std::string user_type)
+bool LogIn::loginMember(std::string id, std::string passwd)
 {
-
-	if (memberCollection.chechloginMember(id, passwd)) {
+	MemberCollection *memberCollection = MemberCollection::getInstance();
+	if (memberCollection->chechloginMember(id, passwd)) {
 		return true;
 	}
 	else {
@@ -17,12 +14,10 @@ bool SignUp::loginMember(std::string id, std::string passwd, std::string name, s
 	}
 }
 
-LogInUI::LogInUI()
-{
-	logInControl = LogIn();
-}
+LogInUI::LogInUI(){}
 
-bool LogInUI::logIn(std::string id, std::string passwd)
+bool LogInUI::logInRequest(std::string id, std::string passwd)
 {
+	LogIn logInControl;
 	logInControl.loginMember(id, passwd);
 }
