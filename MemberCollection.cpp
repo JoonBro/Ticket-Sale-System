@@ -22,7 +22,7 @@ std::vector<Member *> MemberCollection::getMemberList(void)
 void MemberCollection::createMember(std::string id, std::string passwd, std::string name, std::string ssn, std::string user_type)
 {
 	Member *temp = new Member(id, passwd, name, ssn, user_type);
-	memberList.push_back(temp); // Memberì—ì„œ ì£¼ì„ì²˜ë¦¬í•œ ë©¤ë²„ë³€ìˆ˜ëŠ” ì¶”í›„ì— ì¶”ê°€í•˜ëŠ” ë°©í–¥ìœ¼ë¡œ
+	memberList.push_back(temp); // Member¿¡¼­ ÁÖ¼®Ã³¸®ÇÑ ¸â¹öº¯¼ö´Â ÃßÈÄ¿¡ Ãß°¡ÇÏ´Â ¹æÇâÀ¸·Î
 }
 
 void MemberCollection::deleteMember(Member *m)

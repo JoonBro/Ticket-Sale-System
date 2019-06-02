@@ -7,20 +7,20 @@
 class Ticket
 {
 private:
-	int ticketPrice; // ê°€ê²©
-	std::string ticketDate; // ì‹œê°„
-	std::string ticketHomeTeam; // í™ˆíŒ€
-	std::string ticketAwayTeam; // ì–´ì›¨ì´íŒ€
-	std::string ticketSeat; // ì¢Œì„
-	bool ticketAuction; // ê²½ë§¤ ì˜µì…˜
-	bool underAuction; // í˜„ì¬ ê²½ë§¤ ì¤‘ì¸ê°€
-	bool failedAuction; // ë‚™ì°° ì‹¤íŒ¨
-	std::vector<std::pair<int, std::string>> bidders; // ì…ì°°í•œ ì‚¬ëŒë“¤
-	std::string buyerID; // í‹°ì¼“ êµ¬ë§¤ì
-	std::string reservedDate; // êµ¬ë§¤í•œ ë‚ ì§œ
-	std::string sellerID; // í‹°ì¼“ íŒë§¤ì
-	std::string soldDate; // íŒë§¤í•œ ë‚ ì§œ
-	std::string uploadedDate; // í‹°ì¼“ì„ ë“±ë¡í•œ ë‚ ì§œ
+	int ticketPrice; // °¡°İ
+	std::string ticketDate; // ½Ã°£
+	std::string ticketHomeTeam; // È¨ÆÀ
+	std::string ticketAwayTeam; // ¾î¿şÀÌÆÀ
+	std::string ticketSeat; // ÁÂ¼®
+	bool ticketAuction; // °æ¸Å ¿É¼Ç
+	bool underAuction; // ÇöÀç °æ¸Å ÁßÀÎ°¡
+	bool failedAuction; // ³«Âû ½ÇÆĞ
+	std::vector<std::pair<int, std::string>> bidders; // ÀÔÂûÇÑ »ç¶÷µé
+	std::string buyerID; // Æ¼ÄÏ ±¸¸ÅÀÚ
+	std::string reservedDate; // ±¸¸ÅÇÑ ³¯Â¥
+	std::string sellerID; // Æ¼ÄÏ ÆÇ¸ÅÀÚ
+	std::string soldDate; // ÆÇ¸ÅÇÑ ³¯Â¥
+	std::string uploadedDate; // Æ¼ÄÏÀ» µî·ÏÇÑ ³¯Â¥
 public:
 	Ticket(Member *m, std::string currentTime, int ticketPrice, std::string ticketTime, std::string ticketHomeTeam, std::string ticketAwayTeam, std::string ticketSeat, bool ticketAuction);
 	int getTicketPrice(void);

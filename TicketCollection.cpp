@@ -45,7 +45,7 @@ void TicketCollection::adjustAuctionTicket(std::string currentTime)
 
 	for (int i = 0; i<ticketList.size(); i++)
 	{
-		// ê²½ë§¤ ë“±ë¡ ì•ˆ ë˜ì–´ìžˆëŠ” í‹°ì¼“ì´ê±°ë‚˜ ì´ë¯¸ íŒë§¤ëœ í‹°ì¼“ì´ë¼ë©´ ì—…ë°ì´íŠ¸í•  í•„ìš” ì—†ë‹¤.
+		// °æ¸Å µî·Ï ¾È µÇ¾îÀÖ´Â Æ¼ÄÏÀÌ°Å³ª ÀÌ¹Ì ÆÇ¸ÅµÈ Æ¼ÄÏÀÌ¶ó¸é ¾÷µ¥ÀÌÆ®ÇÒ ÇÊ¿ä ¾ø´Ù.
 		if (!ticketList[i]->getTicketAuction() || ticketList[i]->getSoldDate() != "")
 			continue;
 
@@ -68,9 +68,9 @@ void TicketCollection::adjustAuctionTicket(std::string currentTime)
 				ticketList[i]->setFailedAuction(true);
 			else
 			{
-				// ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
+				// ¿À¸§Â÷¼ø Á¤·Ä
 				sort(bidders.begin(), bidders.end());
-				// ë”°ë¼ì„œ ë§ˆì§€ë§‰ í‹°ì¼“ì´ ì œì¼ ë¹„ì‹¸ê²Œ ìž…ì°°í•œ ë©¤ë²„
+				// µû¶ó¼­ ¸¶Áö¸· Æ¼ÄÏÀÌ Á¦ÀÏ ºñ½Î°Ô ÀÔÂûÇÑ ¸â¹ö
 				int idx = bidders.size() - 1;
 				ticketList[i]->setTicketPrice(bidders[idx].first);
 				ticketList[i]->setBuyerId(bidders[idx].second);
@@ -79,7 +79,7 @@ void TicketCollection::adjustAuctionTicket(std::string currentTime)
 			}
 		}
 
-		// ê²½ë§¤ ì‹œìž‘
+		// °æ¸Å ½ÃÀÛ
 		if (diff <= 24 * 60)
 			ticketList[i]->setUnderAuction(true);
 	}
@@ -108,7 +108,7 @@ void TicketCollection::deleteExpiredTicket(std::string currentTime)
 		int second = year * 365 * 24 * 60 + month * days[curMonth] * 24 * 60 + day * 24 * 60 + hour * 60 + minute;
 
 		int diff = curSecond - second;
-		// ë“±ë¡ëœì§€ 1ë…„ ì§€ë‚œ í‹°ì¼“ ì‚­ì œ
+		// µî·ÏµÈÁö 1³â Áö³­ Æ¼ÄÏ »èÁ¦
 		if (diff > 365 * 24 * 60)
 			ticketList.erase(ticketList.begin() + (i - deleteCnt++));
 	}
@@ -169,7 +169,7 @@ std::vector<Ticket *> TicketCollection::getAuctionTicketList(std::string team)
 
 std::vector<Ticket *> TicketCollection::sortTicketList(std::vector<Ticket *> ticketList)
 {
-	// ì‹œê°„ ê¸°ì¤€ ë²„ë¸” ì†ŒíŠ¸
+	// ½Ã°£ ±âÁØ ¹öºí ¼ÒÆ®
 	for (int i = 0; i<ticketList.size() - 1; i++)
 		for (int j = i + 1; j<ticketList.size(); j++)
 		{

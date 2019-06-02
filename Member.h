@@ -7,12 +7,12 @@
 class Member
 {
 private:
-	std::string memberId; // ì•„ì´ë””
-	std::string memberPassword; // ë¹„ë°€ë²ˆí˜¸
-	std::string memberName; // ì´ë¦„
-	std::string memberSsn; // ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸
-	int memberUserType; // êµ¬ë§¤ì, íŒë§¤ì
-	int currentState; // 0: Logout, 1:Login, 2: í˜„ì¬ ë¡œê·¸ì¸
+	std::string memberId; // ¾ÆÀÌµğ
+	std::string memberPassword; // ºñ¹Ğ¹øÈ£
+	std::string memberName; // ÀÌ¸§
+	std::string memberSsn; // ÁÖ¹Îµî·Ï¹øÈ£
+	int memberUserType; // ±¸¸ÅÀÚ, ÆÇ¸ÅÀÚ
+	int currentState; // 0: Logout, 1:Login, 2: ÇöÀç ·Î±×ÀÎ
 public:
 	Member(std::string memberId, std::string memberPassword, std::string memberName, std::string memberSsn, std::string memberType);
 	std::string getId(void);
@@ -27,4 +27,4 @@ public:
 	void setMemberUserType(int type);
 	int getCurrentState(void);
 	void setCurrentState(int state);
-};//í‹°ì¼“ì‹œìŠ¤í…œì˜ ë©¤ë²„.êµ¬ë§¤ìì™€ íŒë§¤ìë¡œ ë‚˜ë‰œë‹¤. 
+};//Æ¼ÄÏ½Ã½ºÅÛÀÇ ¸â¹ö.±¸¸ÅÀÚ¿Í ÆÇ¸ÅÀÚ·Î ³ª´¶´Ù. 

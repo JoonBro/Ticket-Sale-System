@@ -23,7 +23,7 @@ std::string Timer::getTime(void)
 void Timer::setTime(std::string time)
 {
 	this->time = time;
-	// ëª¨ë“  ë©¤ë²„ í‹°ì¼“ ì—…ë°ì´íŠ¸
+	// ¸ðµç ¸â¹ö Æ¼ÄÏ ¾÷µ¥ÀÌÆ®
 	TicketCollection *ticketCollection = TicketCollection::getInstance();
 	ticketCollection->adjustAuctionTicket(time);
 	ticketCollection->deleteExpiredTicket(time);

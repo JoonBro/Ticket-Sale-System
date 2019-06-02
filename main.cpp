@@ -37,7 +37,7 @@ Member *curUser;
 
 int main(void)
 {
-	// íŒŒì¼ ì…ì¶œë ¥ì„ ìœ„í•œ ì´ˆê¸°í™”
+	// ÆÄÀÏ ÀÔÃâ·ÂÀ» À§ÇÑ ÃÊ±âÈ­
 	input_txt.open("input.txt");
 	output_txt.open("output.txt");
 
@@ -48,28 +48,28 @@ int main(void)
 
 void doTask(void)
 {
-	// ë©”ë‰´ íŒŒì‹±ì„ ìœ„í•œ level êµ¬ë¶„ì„ ìœ„í•œ ë³€ìˆ˜
+	// ¸Ş´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºĞÀ» À§ÇÑ º¯¼ö
 	int menu_level_1 = 0, menu_level_2 = 0;
 	bool is_program_exit = false;
 
 	while (!is_program_exit)
 	{
-		// ì…ë ¥íŒŒì¼ì—ì„œ ë©”ë‰´ ìˆ«ì 2ê°œë¥¼ ì½ê¸°
+		// ÀÔ·ÂÆÄÀÏ¿¡¼­ ¸Ş´º ¼ıÀÚ 2°³¸¦ ÀĞ±â
 		input_txt >> menu_level_1 >> menu_level_2;
 		//std::cout << menu_level_1 << "\n" << menu_level_2 << "\n";
-		// ë©”ë‰´ êµ¬ë¶„ ë° í•´ë‹¹ ì—°ì‚° ìˆ˜í–‰
+		// ¸Ş´º ±¸ºĞ ¹× ÇØ´ç ¿¬»ê ¼öÇà
 		switch (menu_level_1)
 		{
 		case 1:
 			switch (menu_level_2)
 			{
-			case 1: // íšŒì› ê°€ì… ë©”ë‰´ ë¶€ë¶„
-					// join() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 1: // È¸¿ø °¡ÀÔ ¸Ş´º ºÎºĞ
+					// join() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "join\n";
 				join();
 				break;
-			case 2: // íšŒì› íƒˆí‡´ ë©”ë‰´ ë¶€ë¶„
-					// leave() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 2: // È¸¿ø Å»Åğ ¸Ş´º ºÎºĞ
+					// leave() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "leave\n";
 				leave();
 				break;
@@ -78,13 +78,13 @@ void doTask(void)
 		case 2:
 			switch (menu_level_2)
 			{
-			case 1: // ë¡œê·¸ì¸ ë©”ë‰´ ë¶€ë¶„
-					// login() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 1: // ·Î±×ÀÎ ¸Ş´º ºÎºĞ
+					// login() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "login\n";
 				login();
 				break;
-			case 2: // ë¡œê·¸ì•„ì›ƒ ë©”ë‰´ ë¶€ë¶„
-					// logout() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 2: // ·Î±×¾Æ¿ô ¸Ş´º ºÎºĞ
+					// logout() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "logout\n";
 				logout();
 				break;
@@ -93,13 +93,13 @@ void doTask(void)
 		case 3:
 			switch (menu_level_2)
 			{
-			case 1: // íŒë§¤í‹°ì¼“ ë“±ë¡ ë¶€ë¶„
-					// registerSaleTicket() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 1: // ÆÇ¸ÅÆ¼ÄÏ µî·Ï ºÎºĞ
+					// registerSaleTicket() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "registerSaleTicket\n";
 				registerSaleTicket();
 				break;
-			case 2: // ë“±ë¡ í‹°ì¼“ ì¡°íšŒ
-					// viewRegistedSaleTicket() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 2: // µî·Ï Æ¼ÄÏ Á¶È¸
+					// viewRegistedSaleTicket() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "viewRegisteredTicket\n";
 				viewRegisteredSaleTicket();
 				break;
@@ -108,27 +108,27 @@ void doTask(void)
 		case 4:
 			switch (menu_level_2)
 			{
-			case 1: // í‹°ì¼“ ê²€ìƒ‰ ë¶€ë¶„
-					// search() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 1: // Æ¼ÄÏ °Ë»ö ºÎºĞ
+					// search() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "search\n";
 				search();
 				break;
-			case 2: // í‹°ì¼“ ì˜ˆì•½ ë¶€ë¶„
-					// reserve() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 2: // Æ¼ÄÏ ¿¹¾à ºÎºĞ
+					// reserve() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "reserve\n";
 				reserve();
 				break;
-			case 3: // ê²½ë§¤ ì¤‘ì¸ í‹°ì¼“ ê²€ìƒ‰ ë¶€ë¶„
-					// viewAuctionTicket() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 3: // °æ¸Å ÁßÀÎ Æ¼ÄÏ °Ë»ö ºÎºĞ
+					// viewAuctionTicket() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "viewAuctionTicket\n";
 				viewAuctionTicket();
 				break;
-			case 4: // ê²½ë§¤ ì°¸ì—¬ ë¶€ë¶„
-					// enterAuction() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 4: // °æ¸Å Âü¿© ºÎºĞ
+					// enterAuction() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "enterAuction\n";
 				enterAuction();
 				break;
-			case 5: //ì˜ˆì•½ í‹°ì¼“ ì¶œë ¥
+			case 5: //¿¹¾à Æ¼ÄÏ Ãâ·Â
 				//std::cout << "showReservedTicket\n";
 				showReservedTicket();
 				break;
@@ -137,8 +137,8 @@ void doTask(void)
 		case 5:
 			switch (menu_level_2)
 			{
-			case 1: // í˜„ì¬ì‹œê°„ ì„¤ì • ë¶€ë¶„
-					// setTime() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 1: // ÇöÀç½Ã°£ ¼³Á¤ ºÎºĞ
+					// setTime() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "setTime\n";
 				setTime();
 				break;
@@ -147,13 +147,13 @@ void doTask(void)
 		case 6:
 			switch (menu_level_2)
 			{
-			case 1: // session ë³€ê²½ ë¶€ë¶„
-					// changeCurMember() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 1: // session º¯°æ ºÎºĞ
+					// changeCurMember() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "changeCurMember\n";
 				changeCurMember();
 				break;
-			case 2: // guest sessionìœ¼ë¡œ ë³€ê²½
-					// transitionToGuestSession() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+			case 2: // guest sessionÀ¸·Î º¯°æ
+					// transitionToGuestSession() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà
 				//std::cout << "transitionToGuestSession\n";
 				transitionToGuestSession();
 				break;
@@ -162,7 +162,7 @@ void doTask(void)
 		case 7:
 			switch (menu_level_2)
 			{
-			case 1: // 7.1 ì¢…ë£Œ ë©”ë‰´ ë¶€ë¶„
+			case 1: // 7.1 Á¾·á ¸Ş´º ºÎºĞ
 				//std::cout << "program_exit\n";
 				program_exit();
 				is_program_exit = true;
@@ -175,110 +175,110 @@ void doTask(void)
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.05.30 01:30
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.05.30 01:30
 */
 void join(void)
 {
 	std::string id, passwd, name, ssn, user_type;
-	// ì…ë ¥ í˜•ì‹: ID, ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ì‚¬ìš©ììœ í˜•ì„ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
+	// ÀÔ·Â Çü½Ä: ID, ºñ¹Ğ¹øÈ£, ÀÌ¸§, ÁÖ¹Î¹øÈ£, »ç¿ëÀÚÀ¯ÇüÀ» ÆÄÀÏ·ÎºÎÅÍ ÀĞÀ½
 	input_txt >> id >> passwd >> name >> ssn >> user_type;
-	// í•´ë‹¹ ê¸°ëŠ¥ìˆ˜í–‰
+	// ÇØ´ç ±â´É¼öÇà
 	SignUpUI signUpUI;
 	signUpUI.signUp(id, passwd, name, ssn, user_type);
 
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "1.1 íšŒì›ê°€ì…\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "1.1 È¸¿ø°¡ÀÔ\n";
 	output_txt << "> " << id << " " << passwd << " " << name << " " << ssn << " " << user_type << "\n";
 	output_txt << "\n";
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.06.01 03:14
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.06.01 03:14
 */
 void leave(void)
 {
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	SignOutUI signOutUI;
 	bool flag = signOutUI.signOut(curUser);
 
-	output_txt << "1.2 íšŒì›íƒˆí‡´\n";
-	// ì¶œë ¥ í˜•ì‹
+	output_txt << "1.2 È¸¿øÅ»Åğ\n";
+	// Ãâ·Â Çü½Ä
 	output_txt << "> " << curUser->getId();
 	if (flag)
 		output_txt << "\n";
 	else
-		output_txt << "ê°€ í‹°ì¼“ì„ íŒë§¤ì¤‘ì´ë¯€ë¡œ ê±°ë¶€\n";
+		output_txt << "°¡ Æ¼ÄÏÀ» ÆÇ¸ÅÁßÀÌ¹Ç·Î °ÅºÎ\n";
 	output_txt << "\n";
 }
 
 /*
-ì‘ì„±ì: ë°•ì¤€í˜•
-ì‘ì„± ì‹œê°„: 2019.05.31 01:30
+ÀÛ¼ºÀÚ: ¹ÚÁØÇü
+ÀÛ¼º ½Ã°£: 2019.05.31 01:30
 */
 void login(void)
 {
 	std::string id, passwd;
-	// ì…ë ¥ í˜•ì‹: ID, ë¹„ë°€ë²ˆí˜¸, ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ì‚¬ìš©ììœ í˜•ì„ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
+	// ÀÔ·Â Çü½Ä: ID, ºñ¹Ğ¹øÈ£, ÀÌ¸§, ÁÖ¹Î¹øÈ£, »ç¿ëÀÚÀ¯ÇüÀ» ÆÄÀÏ·ÎºÎÅÍ ÀĞÀ½
 	input_txt >> id >> passwd;
 
-	// í•´ë‹¹ ê¸°ëŠ¥ìˆ˜í–‰
+	// ÇØ´ç ±â´É¼öÇà
 	LogInUI logInUI;
-	output_txt << "2.1 ë¡œê·¸ì¸\n";
+	output_txt << "2.1 ·Î±×ÀÎ\n";
 	if (logInUI.logInRequest(id, passwd))
 		output_txt << "> " << id << " " << passwd << "\n";
 	else
-		output_txt << "> ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜í•˜ì§€ ì•Šì•„ ê±°ë¶€\n";
+		output_txt << "> ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£ ÀÏÄ¡ÇÏÁö ¾Ê¾Æ °ÅºÎ\n";
 
 	output_txt << "\n";
 }
 
 /*
-ì‘ì„±ì: ë°•ì¤€í˜•
-ì‘ì„± ì‹œê°„: 2019.05.31 16:00
+ÀÛ¼ºÀÚ: ¹ÚÁØÇü
+ÀÛ¼º ½Ã°£: 2019.05.31 16:00
 */
 void logout(void)
 {
-	// í•´ë‹¹ ê¸°ëŠ¥ìˆ˜í–‰
+	// ÇØ´ç ±â´É¼öÇà
 	LogOutUI logOutUI;
-	output_txt << "2.2 ë¡œê·¸ì•„ì›ƒ\n";
+	output_txt << "2.2 ·Î±×¾Æ¿ô\n";
 	if (logOutUI.logOutRequest())
 		output_txt << "> " << logOutUI.printLogOutID() << "\n";
 	output_txt << "\n";
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.06.01 15:11
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.06.01 15:11
 */
 void registerSaleTicket(void)
 {
 	std::string price, date, homeTeam, awayTeam, seat, option;
-	// ì…ë ¥ í˜•ì‹: í¬ë§ê°€ê²©, ë‚ ì§œ-ì‹œê°„, í™ˆíŒ€, ì–´ì›¨ì´íŒ€, ì¢Œì„ìœ„ì¹˜, ê²½ë§¤ì„ íƒì—¬ë¶€ íŒŒì¼ë¡œë¶€í„° ì½ìŒ
+	// ÀÔ·Â Çü½Ä: Èñ¸Á°¡°İ, ³¯Â¥-½Ã°£, È¨ÆÀ, ¾î¿şÀÌÆÀ, ÁÂ¼®À§Ä¡, °æ¸Å¼±ÅÃ¿©ºÎ ÆÄÀÏ·ÎºÎÅÍ ÀĞÀ½
 	input_txt >> price >> date >> homeTeam >> awayTeam >> seat >> option;
 	//std::cout << price << " " << date << " " << homeTeam << " " << awayTeam << " " << seat << " " << option << "\n";
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	RegisteringSaleTicketUI registeringSaleTicketUI;
 	registeringSaleTicketUI.sendTicketInfo(price, date, homeTeam, awayTeam, seat, option);
 
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "3.1 íŒë§¤í‹°ì¼“ ë“±ë¡\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "3.1 ÆÇ¸ÅÆ¼ÄÏ µî·Ï\n";
 	output_txt << "> " << price << " " << date << " " << homeTeam << " " << awayTeam << " " << seat << " " << option << "\n";
 	output_txt << "\n";
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.06.01 21:40
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.06.01 21:40
 */
 void viewRegisteredSaleTicket(void)
 {
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	ViewRegisteredSaleTicketUI viewRegisteredSaleTicketUI;
 	std::vector<Ticket *> saleTicketList = viewRegisteredSaleTicketUI.viewSaleTicket();
 
-	output_txt << "3.2 ë“±ë¡í‹°ì¼“ ì¡°íšŒ\n";
+	output_txt << "3.2 µî·ÏÆ¼ÄÏ Á¶È¸\n";
 	for (int i = 0; i<saleTicketList.size(); i++)
 	{
 		output_txt << "> " << saleTicketList[i]->getTicketPrice() << " " << saleTicketList[i]->getTicketDate();
@@ -293,30 +293,30 @@ void viewRegisteredSaleTicket(void)
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.06.01 22:10
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.06.01 22:10
 */
 void search(void)
 {
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	SearchTicketUI searchTicketUI;
 	searchTicketUI.selectTeam();
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.06.01 22:40
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.06.01 22:40
 */
 void reserve(void)
 {
-	// searchì˜ extension
+	// searchÀÇ extension
 	SearchTicketUI searchTicketUI;
 	searchTicketUI.reserveTicket();
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.06.01 23:36
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.06.01 23:36
 */
 void viewAuctionTicket(void)
 {
@@ -325,8 +325,8 @@ void viewAuctionTicket(void)
 }
 
 /*
-ì‘ì„±ì: ë¯¼ê²½íƒœ
-ì‘ì„± ì‹œê°„: 2019.06.01 23:36
+ÀÛ¼ºÀÚ: ¹Î°æÅÂ
+ÀÛ¼º ½Ã°£: 2019.06.01 23:36
 */
 void enterAuction(void)
 {
@@ -338,13 +338,13 @@ void setTime(void)
 {
 	Timer *timer = Timer::getInstance();
 	std::string currentTime;
-	// ì…ë ¥ í˜•ì‹: í˜„ì¬ ì‹œê°„
+	// ÀÔ·Â Çü½Ä: ÇöÀç ½Ã°£
 	input_txt >> currentTime;
 	//std::cout << currentTime << "\n";
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	timer->setTime(currentTime);
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "5.1 í˜„ì¬ì‹œê°„ ì„¤ì •\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "5.1 ÇöÀç½Ã°£ ¼³Á¤\n";
 	output_txt << "> " << currentTime << "\n";
 	output_txt << "\n";
 }
@@ -352,10 +352,10 @@ void setTime(void)
 void changeCurMember(void)
 {
 	std::string id;
-	// ì…ë ¥ í˜•ì‹: id
+	// ÀÔ·Â Çü½Ä: id
 	input_txt >> id;
 
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	MemberCollection *memberCollection = MemberCollection::getInstance();
 	std::vector<Member *> memberList = memberCollection->getMemberList();
 	for (int i = 0; i < memberList.size(); i++)
@@ -368,8 +368,8 @@ void changeCurMember(void)
 		}
 	}
 
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "6.1 session ë³€ê²½\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "6.1 session º¯°æ\n";
 	output_txt << "> " << id << "\n";
 	output_txt << "\n";
 }
@@ -377,31 +377,31 @@ void changeCurMember(void)
 void transitionToGuestSession(void)
 {
 	curUser = nullptr;
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "6.2 guest sessionìœ¼ë¡œ ë³€ê²½\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "6.2 guest sessionÀ¸·Î º¯°æ\n";
 	output_txt << "\n";
 }
 
 void program_exit(void)
 {
-	output_txt << "7.1 ì¢…ë£Œ\n";
+	output_txt << "7.1 Á¾·á\n";
 	return;
 }
 
 /*
-ì‘ì„±ì: ì¡°ìœ ë¦¼
-ì‹œê°: 2019-06-02-01:00*/
+ÀÛ¼ºÀÚ: Á¶À¯¸²
+½Ã°¢: 2019-06-02-01:00*/
 void showReservedTicket(void)
 {
-	std::vector<Ticket *> reservedTicketList;//ì˜ˆì•½ëœ í‹°ì¼“ë¦¬ìŠ¤íŠ¸
-	ShowReservedTicketUI showReservedTicketUI;//UIìƒì„±
+	std::vector<Ticket *> reservedTicketList;//¿¹¾àµÈ Æ¼ÄÏ¸®½ºÆ®
+	ShowReservedTicketUI showReservedTicketUI;//UI»ı¼º
 	reservedTicketList = showReservedTicketUI.showReservedTicket();
 
-	output_txt << "4.5 ì˜ˆì•½ì •ë³´ ì¡°íšŒ\n";
+	output_txt << "4.5 ¿¹¾àÁ¤º¸ Á¶È¸\n";
 	std::vector<Ticket *>::iterator iter;
 	for (iter = reservedTicketList.begin();iter != reservedTicketList.end();iter++)
 	{
-		//êµ¬ë§¤ê°€ê²© ë‚ ì§œ-ì‹œê°„ í™ˆíŒ€ ì–´ì›¨ì´íŒ€ ì¢Œì„ìœ„ì¹˜ ì¶œë ¥		
+		//±¸¸Å°¡°İ ³¯Â¥-½Ã°£ È¨ÆÀ ¾î¿şÀÌÆÀ ÁÂ¼®À§Ä¡ Ãâ·Â		
 		output_txt << (*iter)->getTicketPrice() << " " << (*iter)->getTicketDate() << " " << (*iter)->getTicketHomeTeam() << " " << (*iter)->getTicketAwayTeam() << " " << (*iter)->getTicketSeat() << "\n";
 	}
 	output_txt << "\n";

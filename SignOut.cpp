@@ -9,10 +9,10 @@ bool SignOut::deleteMember(Member *m)
 	MemberCollection *memberCollection = MemberCollection::getInstance();
 	if (m->getMemberUserType() == 2) // seller
 	{
-		// ì œì•½ ì¡°ê±´ í™•ì¸
+		// Á¦¾à Á¶°Ç È®ÀÎ
 		TicketCollection *ticketCollection = TicketCollection::getInstance();
 		std::vector<Ticket *> saleTicketList = ticketCollection->getSaleTicketList(m->getId());
-		// íŒë§¤ ì¤‘ì¸ í‹°ì¼“ì´ ìˆë‹¤ë©´
+		// ÆÇ¸Å ÁßÀÎ Æ¼ÄÏÀÌ ÀÖ´Ù¸é
 		if (saleTicketList.size())
 			return false;
 	}

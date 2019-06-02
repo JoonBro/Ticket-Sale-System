@@ -9,7 +9,7 @@ Member::Member(std::string memberId, std::string memberPassword, std::string mem
 	this->memberPassword = memberPassword;
 	this->memberName = memberName;
 	this->memberSsn = memberSsn;
-	this->currentState = 0; // í˜„ìž¬ ë¡œê·¸ì•„ì›ƒ ìƒíƒœ
+	this->currentState = 0; // ÇöÀç ·Î±×¾Æ¿ô »óÅÂ
 	if (memberType == "buyer")
 		this->memberUserType = BUYER;
 	else

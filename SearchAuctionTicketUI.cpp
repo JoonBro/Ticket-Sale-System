@@ -23,16 +23,16 @@ void SearchAuctionTicketUI::setHomeTeam(std::string team)
 void SearchAuctionTicketUI::selectTeam(void)
 {
 	std::string team;
-	// ì…ë ¥ í˜•ì‹: í™ˆíŒ€
+	// ÀÔ·Â Çü½Ä: È¨ÆÀ
 	input_txt >> team;
 	setHomeTeam(team);
 
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	SearchAuctionTicket searchAuctionTicket;
 	std::vector<Ticket *> ticketList = searchAuctionTicket.viewAuctionTicketList(team);
 
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "4.3 ê²½ë§¤ ì¤‘ì¸ í‹°ì¼“ ê²€ìƒ‰\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "4.3 °æ¸Å ÁßÀÎ Æ¼ÄÏ °Ë»ö\n";
 	for (int i = 0; i<ticketList.size(); i++)
 	{
 		output_txt << "> " << ticketList[i]->getTicketDate() << " " << ticketList[i]->getTicketHomeTeam() << " ";
@@ -45,15 +45,15 @@ void SearchAuctionTicketUI::selectTeam(void)
 void SearchAuctionTicketUI::bidForAuction(void)
 {
 	std::string date, awayTeam, seat, price;
-	// ì…ë ¥ í˜•ì‹: ë‚ ì§œ, ì–´ì›¨ì´íŒ€, ì¢Œì„, ê°€ê²©
+	// ÀÔ·Â Çü½Ä: ³¯Â¥, ¾î¿şÀÌÆÀ, ÁÂ¼®, °¡°İ
 	input_txt >> date >> awayTeam >> seat >> price;
 
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	SearchAuctionTicket searchAuctionTicket;
 	searchAuctionTicket.bidTicket(stoi(price), date, getHomeTeam(), awayTeam, seat);
 
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "4.4 ê²½ë§¤ ì°¸ì—¬\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "4.4 °æ¸Å Âü¿©\n";
 	output_txt << "> " << price << "\n";
 	output_txt << "\n";
 }

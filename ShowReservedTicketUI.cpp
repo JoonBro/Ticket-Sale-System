@@ -10,6 +10,6 @@ std::vector<Ticket *> ShowReservedTicketUI::showReservedTicket(void)
 }
 
 /*
-ì‘ì„±ì: ì¡°ìœ ë¦¼
-ë³€ê²½ì‹œê°„: 2019-06-02-00:33
+ÀÛ¼ºÀÚ: Á¶À¯¸²
+º¯°æ½Ã°£: 2019-06-02-00:33
 */

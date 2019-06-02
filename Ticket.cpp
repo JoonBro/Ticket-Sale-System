@@ -171,7 +171,7 @@ std::string Ticket::remainingAuctionTime(void)
 	int minute = stoi(playTime.substr(14, 2));
 	int second = year * 365 * 24 * 60 + month * days[month] * 24 * 60 + day * 24 * 60 + hour * 60 + minute;
 
-	int diff = curSecond - second - 6 * 60; // ê²½ë§¤ 6ì‹œê°„ ì „ ì¢…ë£Œì‹œê°„
+	int diff = curSecond - second - 6 * 60; // °æ¸Å 6½Ã°£ Àü Á¾·á½Ã°£
 	std::string result;
 	if (diff / 60 < 10)
 		result += '0';

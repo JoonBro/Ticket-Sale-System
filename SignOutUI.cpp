@@ -1,10 +1,12 @@
-#include "SignUpUI.h"
-#include "SignUp.h"
+#include "SignOutUI.h"
+#include "SignOut.h"
+#include "MemberCollection.h"
 
-SignUpUI::SignUpUI() {}
+SignOutUI::SignOutUI() {}
 
-void SignUpUI::signUp(std::string id, std::string passwd, std::string name, std::string ssn, std::string user_type)
+bool SignOutUI::signOut(Member *m)
 {
-	SignUp signUp;
-	signUp.addMember(id, passwd, name, ssn, user_type);
+	SignOut signOut;
+	bool flag = signOut.deleteMember(m);
+	return flag;
 }

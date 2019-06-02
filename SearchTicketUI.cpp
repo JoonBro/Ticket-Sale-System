@@ -22,17 +22,17 @@ void SearchTicketUI::setHomeTeam(std::string team)
 void SearchTicketUI::selectTeam(void)
 {
 	std::string team;
-	// ì…ë ¥ í˜•ì‹: í™ˆíŒ€
+	// ÀÔ·Â Çü½Ä: È¨ÆÀ
 	input_txt >> team;
 	setHomeTeam(team);
 
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	SearchTicket searchTicket;
 	std::vector<Ticket *> availableTicketList;
 	availableTicketList = searchTicket.viewAvailableTicketList(team);
 
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "4.1 í‹°ì¼“ ê²€ìƒ‰ ê¸°ëŠ¥\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "4.1 Æ¼ÄÏ °Ë»ö ±â´É\n";
 	for (int i = 0; i<availableTicketList.size(); i++)
 	{
 		output_txt << "> " << availableTicketList[i]->getTicketPrice() << " " << availableTicketList[i]->getTicketDate() << " ";
@@ -45,15 +45,15 @@ void SearchTicketUI::selectTeam(void)
 void SearchTicketUI::reserveTicket(void)
 {
 	std::string date, awayTeam, seat;
-	// ì…ë ¥ í˜•ì‹: ë‚ ì§œ, ì–´ì›¨ì´íŒ€, ì¢Œì„
+	// ÀÔ·Â Çü½Ä: ³¯Â¥, ¾î¿şÀÌÆÀ, ÁÂ¼®
 	input_txt >> date >> awayTeam >> seat;
 
-	// í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰
+	// ÇØ´ç ±â´É ¼öÇà
 	SearchTicket searchTicket;
 	Ticket * temp = searchTicket.reserveTicket(date, getHomeTeam(), awayTeam, seat);
 
-	// ì¶œë ¥ í˜•ì‹
-	output_txt << "4.2 í‹°ì¼“ ì˜ˆì•½ ê¸°ëŠ¥\n";
+	// Ãâ·Â Çü½Ä
+	output_txt << "4.2 Æ¼ÄÏ ¿¹¾à ±â´É\n";
 	output_txt << "> " << temp->getTicketPrice() << " " << temp->getTicketDate() << " ";
 	output_txt << temp->getTicketHomeTeam() << " " << temp->getTicketAwayTeam() << " ";
 	output_txt << temp->getTicketSeat() << "\n";
